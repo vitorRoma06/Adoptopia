@@ -6,31 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Adoptopia - Home</title>
 </head>
 
 <body>
-    <header class="cabecalho">
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="imgs/logo-principal.svg" alt="logo">
-            </div>
+    <header>
+        <nav class="navigation">
+            <!-- LOGO -->
+            <a href="Home.html" class="logo"><img src="imgs/logo-only.svg" alt="logo">
+                <h1 class="text-logo">Adoptopia</h1>
+            </a>
 
-            <div class="nav-list">
-                <ul>
-                    <li><a href="Home.html" class="nav-link">Home</a></li>
-                    <li><a href="#" class="nav-link">Quero Adotar</a></li>
-                    <li><a href="#" class="nav-link">Sobre nós</a></li>
-                </ul>
-            </div>
 
-            <div class="login-button">
-                <a href="#"><button>Cadastrar</button></a>
-                <a href="#"><button>Entrar</button></a>
-            </div>
+            <ul class="nav-menu">
+                <li><a href=""><i class='bx bx-help-circle'></i></a></li>
+                <li><a href=""><i class='bx bx-cog'></i></a></li>
+                <li><a href=""><i class='bx bx-bell'></i></a></li>
+                <li class="nav-item"><a href="">Quero Adotar</a></li>
+                <li class="nav-item"><a href="Register.html">Cadastrar</a></li>
+                <li class="nav-item"><a href="Login.html">Entrar</a></li>
+            </ul>
+            <input  type="checkbox" id="checkbox">
+            <label onclick="menuShow()" for="checkbox" class="toggle">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+            </label>
+
         </nav>
+        <div class="mobile-menu">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#">Quero Adotar</a></li>
+                <li class="nav-item"><a href="#">Configurações</a></li>
+                <li class="nav-item"><a href="#">Notificações</a></li>
+                <li class="nav-item"><a href="Login.html">Entrar</a></li>
+                <li class="nav-item"><a href="Register.html">Cadastrar</a></li>
+                <li class="nav-item"><a href="#">Ajuda</a></li>
 
+            </ul>
+        </div>
     </header>
+
+
+    <main>
+        <section class="slides">
+          
+        </section>
+    </main>
+    <script src="js/responsive.js"></script>
 </body>
 
 </html>
