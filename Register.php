@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Configurações do banco de dados
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "sistemaadopt";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "sistemaadopt";
 
     // Conecte-se ao banco de dados
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         // Registro bem-sucedido, redirecione para a página de login ou outra página relevante
-        header("Location: login.php");
+        header("Location: login.php"); // Certifique-se de criar a página login.php
     } else {
         echo "Erro ao registrar: " . $conn->error;
     }
@@ -34,6 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 } else {
     // Se o formulário não foi enviado, redirecione para a página de registro ou outra página relevante
-    header("Location: register.php");
+    header("Location: register.php"); // Certifique-se de criar a página register.php
 }
 ?>

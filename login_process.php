@@ -3,10 +3,10 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Configurações do banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sistemaadopt";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "sistemaadopt";
 
     // Conecte-se ao banco de dados
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,7 +29,7 @@ $dbname = "sistemaadopt";
         if (password_verify($password, $row["password"])) {
             // Login bem-sucedido, crie uma sessão e redirecione para a página de perfil ou outra página relevante
             $_SESSION["user_id"] = $row["id"];
-            header("Location: profile.php");
+            header("Location: profile.php"); // Certifique-se de criar a página profile.php
         } else {
             echo "Senha incorreta.";
         }
@@ -40,6 +40,6 @@ $dbname = "sistemaadopt";
     $conn->close();
 } else {
     // Se o formulário não foi enviado, redirecione para a página de login ou outra página relevante
-    header("Location: login.php");
+    header("Location: login.php"); // Certifique-se de criar a página login.php
 }
 ?>
