@@ -17,29 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Coletar dados do formulário
-    $username = $_POST["username"];
+    
+    $email= $_POST["email"];
     $password = $_POST["password"];
 
     // Consulta SQL para buscar o usuário com base no nome de usuário
-    $sql = "SELECT id, nome, usuario, senha FROM usuarios WHERE username = '$username' && WHERE senha = '$password'";
+    $sql = "SELECT id, nome, usuario, senha FROM usuarios WHERE usuario = '$email' && WHERE senha = '$password'";
     $result = $conn->query($sql);
 
-    if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row["password"])) {
-            // Login bem-sucedido, crie uma sessão e redirecione para a página de perfil ou outra página relevante
-            $_SESSION["user_id"] = $row["id"];
-            header("Location: profile.php"); // Certifique-se de criar a página profile.php
-        } else {
-            echo "Senha incorreta.";
-        }
-    } else {
-        echo "Nome de usuário não encontrado.";
-    }
-
-    $conn->close();
-} else {
-    // Se o formulário não foi enviado, redirecione para a página de login ou outra página relevante
-    header("Location: login.php"); // Certifique-se de criar a página login.php
-}
+    
 ?>
