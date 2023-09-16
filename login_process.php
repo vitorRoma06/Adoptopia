@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Consulta SQL para buscar o usuário com base no nome de usuário
-    $sql = "SELECT id, username, password FROM usuarios WHERE username = '$username'";
+    $sql = "SELECT id, nome, usuario, senha FROM usuarios WHERE username = '$username' && WHERE senha = '$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
