@@ -1,39 +1,22 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Configurações do banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "sistemaadopt";
-
-    // Conecte-se ao banco de dados
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verifique a conexão
-    if ($conn->connect_error) {
-        die("Falha na conexão com o banco de dados: " . $conn->connect_error);
-    }
+    include("conexao.php");
 
     // Coletar dados do formulário
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    // Hash da senha para segurança (recomenda-se usar funções mais seguras)
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
 
     // Inserir dados do usuário no banco de dados
-    $sql = "INSERT INTO usuarios (username, password) VALUES ('$username', '$hashed_password')";
+    $sql = "INSERT INTO usuarios (nome, email, senha) 
+    VALUES ('$nome', '$email', '$senha')";
 
-    if ($conn->query($sql) === TRUE) {
-        // Registro bem-sucedido, redirecione para a página de login ou outra página relevante
-        header("Location: login.php"); // Certifique-se de criar a página login.php
-    } else {
-        echo "Erro ao registrar: " . $conn->error;
+    if(mysqli_query($conexao, $sql)){
+        echo "Usuário cadastrado com sucesso";
     }
-
-    $conn->close();
-} else {
-    // Se o formulário não foi enviado, redirecione para a página de registro ou outra página relevante
-    header("Location: register.php"); // Certifique-se de criar a página register.php
+        else{
+            echo "Erro".mysqli_connect_error($conexao);
+        }
+        mysqli_close($conexao);
 }
 ?>
