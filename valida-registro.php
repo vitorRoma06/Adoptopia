@@ -1,6 +1,6 @@
 <?php
 // Verifica se o formulário foi enviado via método POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Inclui o arquivo de conexão com o banco de dados
     include("conexao.php");
 

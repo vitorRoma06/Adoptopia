@@ -20,9 +20,7 @@ include('conexao.php');
             <a href="index.html"><img src="imgs/close.png" alt="close"></a>
         </div>
         <h1 class="title-form bold">Cadastrar</h1>
-
         <form class="form-login-principal flex-column" action="valida-registro.php" method="POST">
-
             <div class="div-inputs flex-column">
                 <div class="step step-1 active">
                     <p class="sub-title-etapa bold">Etapa 1 de 2</p>
@@ -59,7 +57,7 @@ include('conexao.php');
                 </div>
                 <div class="step step-2">
                     <div class="form-group flex-column  ">
-                    <p class="sub-title-etapa bold">Etapa 2 de 2</p>
+                        <p class="sub-title-etapa bold">Etapa 2 de 2</p>
                         <label for="estado">Estado:</label>
                         <input type="text" name="estado" required> <br>
 
@@ -76,15 +74,10 @@ include('conexao.php');
                             <button type="submit" class="cadastrar-button bold">CADASTRAR</button>
 
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
         </form>
-
-
     </div>
     <script src="js/multistep.js"></script>
 </body>
