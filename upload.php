@@ -101,6 +101,7 @@ $sql_query = $mysqli->query("SELECT nomeArquivo, path, created_at FROM animais")
     <!-- Campo de upload de imagem -->
     <input type="file" name="arquivo" accept=".jpg, .png">
     <input type="submit" value="Enviar">
+    <input type="submit" value="Enviar">
 </form>
 
 <table border="1" cellpadding="10">

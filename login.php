@@ -33,6 +33,7 @@ function teste()
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
                 $_SESSION['logado'] = 1;
+                $_SESSION['imagem'] = $usuario['imagem'];
 
                 header("Location: index.php");
 
