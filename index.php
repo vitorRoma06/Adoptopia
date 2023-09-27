@@ -14,19 +14,36 @@
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>
             <!-- Aqui você pode listar os animais em destaque -->
-            <?php 
-            // Supondo que você tenha uma função para buscar animais em destaque do banco de dados
-            $animaisEmDestaque = buscarAnimaisEmDestaque();
-
-            foreach ($animaisEmDestaque as $animal) {
-                echo '<div class="animal-card">';
-                echo '<img src="' . $animal['foto'] . '" alt="' . $animal['nome'] . '">';
-                echo '<h3>' . $animal['nome'] . '</h3>';
-                echo '<p>Idade: ' . $animal['idade'] . '</p>';
-                // Outras informações sobre o animal
-                echo '</div>';
+    <?php 
+            include("conexao.php");
+            $sql = "SELECT * FROM animais WHERE Status = 'D'"; // Supondo que 'D' representa animais disponíveis
+                    //conn
+            $result = $conexao->query($sql);
+            
+            if ($result->num_rows > 0) {
+                // Passo 3: Exibir os animais disponíveis na seção
+                echo '<section class="destaque">';
+                echo '<h2>Animais Disponíveis para Adoção</h2>';
+            
+                while ($animal = $result->fetch_assoc()) {
+                    echo '<div class="animal-card">';
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($animal['foto']) . '" alt="' . $animal['nome'] . '">';
+                    echo '<h3>' . $animal['nome'] . '</h3>';
+                    echo '<p>Idade: ' . $animal['idade'] . ' anos</p>';
+                    echo '<p>Raça: ' . $animal['Raca'] . '</p>';
+                    echo '<p>Cor: ' . $animal['Cor'] . '</p>';
+                    // Outras informações sobre o animal
+                    echo '</div>';
+                }
+            
+                echo '</section>';
+            } else {
+                echo '<p>Nenhum animal disponível para adoção no momento.</p>';
             }
-            ?>
+            
+    $conexao->close();
+    ?>
+
         </section>
         <section class="registro-login">
             <div class="registro">
