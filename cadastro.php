@@ -1,8 +1,8 @@
 <?php
+
 include('conexao.php');
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -62,7 +62,7 @@ include('conexao.php');
                         <input type="text" name="estado" required> <br>
 
                         <label for="cidade">Cidade:</label>
-                        <input type="text" name="cidade" required> <br>
+                        <input type="text" name="cidade" required> 
 
                         <label for="telefone">Telefone:</label>
                         <input type="tel" name="telefone" required> <br>
@@ -72,7 +72,6 @@ include('conexao.php');
                         <div class="group-buttons flex-row">
                             <button type="button" class="voltar-button-register bold">VOLTAR</button>
                             <button type="submit" class="cadastrar-button bold">CADASTRAR</button>
-
                         </div>
                     </div>
                 </div>

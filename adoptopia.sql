@@ -12,20 +12,6 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Banco de dados: `adoptopia`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `animais`
---
 
 CREATE TABLE `animais` (
   `id` int(11) NOT NULL,
@@ -54,11 +40,6 @@ CREATE TABLE `animais` (
 INSERT INTO `animais` (`id`, `idade`, `raca`, `nome`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `situacao`, `status`, `descricao`, `created_at`, `updated_at`, `nomeArquivo`, `path`) VALUES
 (10, 0, '', '', '', '', '', '', '', '', '', '', '', '2023-09-27 17:31:35', '2023-09-27 17:31:35', '651466f7c28f0.png', 'uploads/651466f7c28f0.png');
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `usuarios`
---
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
@@ -71,46 +52,25 @@ CREATE TABLE `usuarios` (
   `data_nascimento` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `usuarios`
---
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `estado`, `cidade`, `telefone`, `data_nascimento`) VALUES
 (17, 'Alok', 'alok@gmail.com', '123456', 'Minas Gerais', 'Contagem', '31940028927', '1991-08-26');
 
---
--- Índices para tabelas despejadas
---
 
---
--- Índices de tabela `animais`
---
 ALTER TABLE `animais`
   ADD PRIMARY KEY (`id`);
 
---
--- Índices de tabela `usuarios`
---
+
+
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT para tabelas despejadas
---
 
---
--- AUTO_INCREMENT de tabela `animais`
---
 ALTER TABLE `animais`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT de tabela `usuarios`
---
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
