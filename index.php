@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+include("protect.php");
+
 
 ?>
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ session_start();
                 <li><a href="#"><i class='bx bx-help-circle'></i></a></li>
                 <li><a href="#"><i class='bx bx-cog'></i></a></li>
                 <li><a href="#"><i class='bx bx-bell'></i></a></li>
-                <li><a href="#"><i class='bx bx-exit'></i></a></li>
+                <li><a href="logout.php"><i class='bx bx-exit'></i></a></li>
                 <li class="nav-item"><a href="teste.php">Quero Doar</a></li>
                 <li class="nav-item"><a href="teste.php">Quero Adotar</a></li>
                 <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] = 1) {
