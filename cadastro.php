@@ -17,7 +17,7 @@ include('conexao.php');
 <body class="body-register">
     <div class="form-box-register">
         <div class="button-close">
-            <a href="index.html"><img src="imgs/close.png" alt="close"></a>
+            <a href="index.php"><img src="imgs/close.png" alt="close"></a>
         </div>
         <h1 class="title-form bold">Cadastrar</h1>
         <form class="form-login-principal flex-column" action="valida-registro.php" method="POST">

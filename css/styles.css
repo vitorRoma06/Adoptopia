@@ -316,6 +316,13 @@ body {
 .foto-user {
     max-width: 50px;
     border-radius: 50%;
+    cursor: pointer;
+    transition: ease-out 0.2s;
+
+}
+.foto-user:hover{
+    transform: scale(1.1);
+    transition: ease-in 0.2s;
 }
 
 .sub-menu-wrap{
@@ -323,6 +330,13 @@ body {
     top:100%;
     right: 5%;
     width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
 }
 
 .sub-menu{
@@ -342,6 +356,9 @@ body {
     max-width: 70px;
     border-radius: 50%;
     margin-right: 15px;
+}
+.user-info h3{
+    color: #272727;
 }
 
 .sub-menu hr{
@@ -480,13 +497,6 @@ body {
 
 .navigation .nav-menu .nav-item a:visited {
     text-decoration: none;
-}
-
-
-.navigation .nav-menu:hover> :not(:hover) {
-    opacity: .4;
-    transform: scale(0.9);
-    transition: 0.2s ease;
 }
 
 .navigation .nav-menu i {

@@ -17,7 +17,7 @@ session_start();
 <body>
     <header>
         <nav class="navigation">
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 <img src="imgs/logo-only.svg" alt="logo">
                 <h1 class="text-logo">Adoptopia</h1>
             </a>
@@ -33,8 +33,8 @@ session_start();
                     <li class="nav-item"><a href="cadastro.php">Cadastrar</a></li>
                     <li class="nav-item"><a href="login.php">Entrar</a></li>
                 <?php } else { ?>
-                    <img src="imgs/dog-photo.png" class="foto-user">
-                    <div class="sub-menu-wrap">
+                    <img src="imgs/dog-photo.png" class="foto-user" onclick="toggleMenu()">
+                    <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                             <div class="user-info">
                                 <img src="imgs/dog-photo.png" alt="foto-usuario">
@@ -58,7 +58,7 @@ session_start();
                                 <p>Ajuda</p>
                                 <span>></span>
                             </a>
-                            <a href="#" class="sub-menu-link flex-row align-itens">
+                            <a href="logout.php" class="sub-menu-link flex-row align-itens">
                                 <i class='bx bx-exit'></i>
                                 <p>Sair</p>
                                 <span>></span>
@@ -93,6 +93,7 @@ session_start();
         </section>
     </main>
     <script src="js/responsive.js"></script>
+    <script src="js/user-profile.js"></script>
 </body>
 
 </html>
