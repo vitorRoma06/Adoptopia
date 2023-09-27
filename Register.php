@@ -1,8 +1,10 @@
 <?php
+// Verifica se o formulário foi enviado via método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Inclui o arquivo de conexão com o banco de dados
     include("conexao.php");
 
-    // Coletar dados do formulário
+    // Coleta os dados do formulário
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
@@ -10,25 +12,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cidade = $_POST["cidade"];
     $telefone = $_POST["telefone"];
     
-    // Coletar a data de nascimento no formato dd/mm/yyyy
+    // Coleta a data de nascimento do formulário
     $data_nascimento = $_POST["data_nascimento"];
 
-    // Inserir dados na tabela usuarios
+    // Converte a data para o formato correto "AAAA-MM-DD"
+    $data_nascimento = date("Y-m-d", strtotime(str_replace('/', '-', $data_nascimento)));
+
+    // Prepara a consulta SQL para inserir dados na tabela 'usuarios'
     $query_usuarios = "INSERT INTO usuarios (nome, email, senha, estado, cidade, telefone, data_nascimento) VALUES (?, ?, ?, ?, ?, ?, ?)";
     
+    // Prepara a declaração SQL com os valores a serem inseridos
     $stmt = $conexao->prepare($query_usuarios);
+    
+    // Liga os parâmetros da declaração aos valores das variáveis
     $stmt->bind_param("sssssss", $nome, $email, $senha, $estado, $cidade, $telefone, $data_nascimento);
     
+    // Executa a consulta SQL
     if ($stmt->execute()) {
         echo "Usuário cadastrado com sucesso";
-        exit; // linha para interromper a execução do código aqui
+        exit; // Linha para interromper a execução do código aqui
     } else {
         echo "Erro: " . $stmt->error;
     }
 
-    //A DATA NÃO ESTÁ SENDO SALVA NO FORMATO PADRÃO BRASILEIRO DIA/MÊS/ANO
-
-    $query_usuario = "SELECT id, email, DATE_FORMAT(data_nascimento, '%d/%m/%Y') AS data_formatada, data_nascimento FROM usuarios";
+    // Consulta os usuários cadastrados e exibe as datas de nascimento formatadas
+    $query_usuario = "SELECT id, email, data_nascimento FROM usuarios";
     
     $result_usuario = $conexao->query($query_usuario);
 
@@ -40,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erro na consulta de notificações: " . $conexao->error;
     }
 
+    // Fecha a conexão com o banco de dados
     $conexao->close();
 }
 ?>
