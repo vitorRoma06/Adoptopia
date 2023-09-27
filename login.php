@@ -26,7 +26,7 @@ ob_start();
                 session_start();
                 $_SESSION["usuario"]=$email;
                 //redirecionar as informações para outra página
-                header("location: sessaoCookies_conteudos.php");
+                header("location: index.html");
             } else {
                 echo "Dados incorretos! <br>" ;
             }
