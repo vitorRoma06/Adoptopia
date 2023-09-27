@@ -308,6 +308,80 @@ body {
 
 
 
+/*---------------------------*/
+/*-----------PROFILE---------*/
+/*---------------------------*/
+/*---------------------------*/
+
+.foto-user {
+    max-width: 50px;
+    border-radius: 50%;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top:100%;
+    right: 5%;
+    width: 320px;
+}
+
+.sub-menu{
+    background-color: var(--color-defaultW);
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+
+}
+
+.user-info img{
+    max-width: 70px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #D4D4D4;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+.sub-menu-link i{
+    width: 40px;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span{
+    font-size: 1,375em;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+    transform: translatex(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: bold;
+}
+
 
 
 
@@ -354,6 +428,7 @@ body {
 /* BARRA MENU */
 
 .navigation {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
