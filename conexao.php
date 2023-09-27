@@ -3,7 +3,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "adoptopiabase";
+    $dbname = "adoptopia";
 
     // Conecte-se ao banco de dados
     $conexao = new mysqli($servername, $username, $password, $dbname);
