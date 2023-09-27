@@ -28,8 +28,8 @@ if (isset($_FILES['arquivo'])) {
 
             if ($deu_certo) {
                 // Inserir informações na tabela animais
-                $conexao->query("INSERT INTO animais (nomeArquivo, path, created_at)
-                                VALUES ('$novoNomeDoArquivo', '$path', NOW())") or die($conexao->error);
+                $mysqli->query("INSERT INTO animais (nomeArquivo, path, created_at)
+                                VALUES ('$novoNomeDoArquivo', '$path', NOW())") or die($mysqli->error);
 
                 echo "<p>Arquivo enviado e inserido com sucesso!</p>";
             } else {
@@ -43,7 +43,7 @@ if (isset($_FILES['arquivo'])) {
     }
 }
 
-$sql_query = $conexao->query("SELECT nomeArquivo, path, created_at FROM animais") or die($conexao->error);
+$sql_query = $mysqli->query("SELECT nomeArquivo, path, created_at FROM animais") or die($mysqli->error);
 ?>
 
 <!-- Formulário de envio de arquivo -->
