@@ -11,42 +11,44 @@
 <body>
     <header>
         <!-- Seu cabeçalho e navegação aqui -->
+        <?php include("protect.php"); ?>
+        <?php include("navigation.php"); ?>
     </header>
     <main>
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>
-            <!-- Aqui você pode listar os animais em destaque -->
-            <!-- Botão para a página de upload de arquivo -->
-            <a href="upload.php" class="btn-upload">Fazer Upload de Arquivo</a>
             <?php
             include("conexao.php");
-            $sql = "SELECT * FROM animais WHERE Status = 'D'"; // Supondo que 'D' representa animais disponíveis
-            //conn
-            $result = $mysqli->query($sql);
+            $sql = "SELECT * FROM animais WHERE status = 'D'"; // Supondo que 'D' representa animais disponíveis
+            $stmt = $mysqli->prepare($sql);
 
-            if ($result->num_rows > 0) {
-                // Passo 3: Exibir os animais disponíveis na seção
-                echo '<section class="destaque">';
+            if ($stmt) {
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-                while ($animal = $result->fetch_assoc()) {
-                    echo '<div class="animal-card">';
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($animal['foto']) . '" alt="' . $animal['nome'] . '">';
-                    echo '<h3>' . $animal['nome'] . '</h3>';
-                    echo '<p>Idade: ' . $animal['idade'] . ' anos</p>';
-                    echo '<p>Raça: ' . $animal['Raca'] . '</p>';
-                    echo '<p>Cor: ' . $animal['Cor'] . '</p>';
-                    // Outras informações sobre o animal
-                    echo '</div>';
+                if ($result->num_rows > 0) {
+                    echo '<section class="destaque">';
+                    while ($animal = $result->fetch_assoc()) {
+                        echo '<div class="animal-card">';
+                        echo  '<img height="300" width="300" src="' . $animal['path'] . '" alt="' . $animal['nome'] . '">';
+                        echo '<h3>' . $animal['nome'] . '</h3>';
+                        echo '<p>Idade: ' . $animal['idade'] . ' anos</p>';
+                        echo '<p>Raça: ' . $animal['raca'] . '</p>';
+                        echo '<p>Cor: ' . $animal['cor'] . '</p>';
+                        // Outras informações sobre o animal
+                        echo '</div>';
+                    }
+                    echo '</section>';
+                } else {
+                    echo '<p>Nenhum animal disponível para adoção no momento.</p>';
                 }
-
-                echo '</section>';
+                $stmt->close();
             } else {
-                echo '<p>Nenhum animal disponível para adoção no momento.</p>';
+                echo '<p>Ocorreu um erro ao buscar os animais disponíveis.</p>';
             }
-
             $mysqli->close();
             ?>
-
+        </section>
     </main>
     <footer>
         <!-- Seu rodapé aqui -->
