@@ -6,6 +6,7 @@
     --color-defaultW: #fff;
     --color-principal: #0003ff;
     --color-principal2: #3335ff;
+    --color-principal3: #4162EF;
 
     --font-default: 'Montserrat', sans-serif;
 
@@ -16,6 +17,182 @@ body {
     font-family: var(--font-default);
 }
 
+.body-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.align-itens {
+    align-items: center;
+}
+
+.j-content {
+    justify-content: center;
+}
+
+/*LOGIN*/
+
+.form-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 40px;
+    max-width: 560px;
+    height: 530px;
+    gap: 30px;
+    background-color: var(--color-defaultW);
+    border-radius: 10px;
+    box-shadow: 14px 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+.title-form {
+    font-size: 3.75em;
+    color: var(--color-principal3);
+}
+
+.form-login-principal {
+    gap: 40px;
+    width: 90%;
+}
+
+.div-buttons-social {
+    gap: 25px;
+}
+
+.button-social {
+    font-family: var(--font-default);
+    font-size: 1.25em;
+    padding: 10px;
+    border: none;
+    background-color: var(--color-defaultW);
+    box-shadow: 4px 0px 9px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    gap: 10px;
+    width: 100%;
+    transition: ease-out 0.2s;
+
+}
+
+.button-social:hover {
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+}
+
+.mid-form {
+    gap: 10px;
+}
+
+.mid-form hr {
+    width: 213px;
+}
+
+.div-inputs {
+    gap: 25px;
+}
+
+.div-inputs input {
+    font-size: 1.10em;
+    font-family: var(--font-default);
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: transparent;
+    border-radius: 10px;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.login-button {
+    background-color: var(--color-principal3);
+    color: var(--color-defaultW);
+    border: none;
+    letter-spacing: 5px;
+    font-size: 1.25em;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 9px #7C95FF;
+    transition: ease-out 0.2s;
+}
+
+.login-button:hover {
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------
+/*--------------------------------
+/*--------------------------------
+/*--------------------------------
+/*--------------------------------
 /* BARRA MENU */
 
 .navigation {
@@ -66,6 +243,10 @@ body {
     border: 1px var(--color-principal2) inset;
     cursor: pointer;
 
+}
+
+.navigation .nav-menu .nav-item a:visited {
+    text-decoration: none;
 }
 
 .navigation .nav-menu:hover> :not(:hover) {
@@ -165,7 +346,7 @@ body {
         display: block;
     }
 
-    .mobile-menu .nav-menu{
+    .mobile-menu .nav-menu {
         padding-top: 100px;
         display: flex;
         align-items: center;
@@ -173,19 +354,19 @@ body {
         gap: 1.8rem;
     }
 
-    .mobile-menu .nav-menu .nav-item a{
+    .mobile-menu .nav-menu .nav-item a {
         text-decoration: none;
         color: var(--color-principal);
         font-size: 1.5rem;
         transition: 0.2s ease;
     }
 
-    .mobile-menu .nav-menu .nav-item:hover{
+    .mobile-menu .nav-menu .nav-item:hover {
         transform: scale(1.5);
         transition: 0.5s ease;
     }
 
-    .open{
+    .open {
         display: block;
     }
 
