@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estado = $_POST["estado"];
     $cidade = $_POST["cidade"];
     $telefone = $_POST["telefone"];
-    
+
     // Coleta a data de nascimento do formulário
     $data_nascimento = $_POST["data_nascimento"];
 
@@ -20,13 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepara a consulta SQL para inserir dados na tabela 'usuarios'
     $query_usuarios = "INSERT INTO usuarios (nome, email, senha, estado, cidade, telefone, data_nascimento) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    
+
     // Prepara a declaração SQL com os valores a serem inseridos
     $stmt = $conexao->prepare($query_usuarios);
-    
+
     // Liga os parâmetros da declaração aos valores das variáveis
     $stmt->bind_param("sssssss", $nome, $email, $senha, $estado, $cidade, $telefone, $data_nascimento);
-    
+
     // Executa a consulta SQL
     if ($stmt->execute()) {
         echo "Usuário cadastrado com sucesso";
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta os usuários cadastrados e exibe as datas de nascimento formatadas
     $query_usuario = "SELECT id, email, data_nascimento FROM usuarios";
-    
+
     $result_usuario = $conexao->query($query_usuario);
 
     if ($result_usuario) {

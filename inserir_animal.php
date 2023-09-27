@@ -24,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inserir os dados do animal na tabela animais
     $sql = "INSERT INTO animais (idade, raca, nome, cor, porte, sexo, vacinado, castrado, patologia, situacao, status, descricao, nomeArquivo)
             VALUES ('$idade', '$raca', '$nome', '$cor', '$porte', '$sexo', '$vacinado', '$castrado', '$patologia', '$situacao', '$status', '$descricao', '$nomeArquivo')";
-    if ($conexao->query($sql) === TRUE) {
+    if ($mysqli->query($sql) === TRUE) {
         echo "<p>Animal inserido com sucesso!</p>";
     } else {
-        echo "Erro ao inserir animal: " . $conexao->error;
+        echo "Erro ao inserir animal: " . $mysqli->error;
     }
 }
 ?>
