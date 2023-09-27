@@ -13,7 +13,8 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     font-family: var(--font-default);
 }
 
@@ -45,15 +46,24 @@ body {
     justify-content: center;
 }
 
+#opcao{
+    text-align: center;
+}
+#amarelo{
+    color: var(--color-principal);
+    text-decoration: none;
+}
+
 /*LOGIN*/
 
 .form-box {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 80px 40px;
     max-width: 560px;
-    height: 530px;
+    height: 580px;
     gap: 30px;
     background-color: var(--color-defaultW);
     border-radius: 10px;
@@ -122,8 +132,8 @@ body {
     color: var(--color-defaultW);
     border: none;
     letter-spacing: 5px;
-    font-size: 1.25em;
-    padding: 12px;
+    font-size: 1.4em;
+    padding: 16px;
     border-radius: 10px;
     box-shadow: 4px 4px 9px #7C95FF;
     transition: ease-out 0.2s;
@@ -133,6 +143,154 @@ body {
     transform: scale(1.05);
     transition: ease-in 0.2s;
 }
+
+.fail-login {
+    color: rgb(255, 48, 48);
+}
+
+
+/*Register*/
+
+.button-close{
+    position: absolute;
+    top: 28px;
+    left: 28px;
+}
+.body-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-register .form-box-register {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 70px 40px;
+    width: 560px;
+    height: 630px;
+    gap: 25px;
+    background-color: var(--color-defaultW);
+    border-radius: 10px;
+    box-shadow: 14px 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+.body-register .title-form {
+    font-size: 3.75em;
+    color: var(--color-principal3);
+    margin-top: -15px;
+}
+
+.body-register .form-login-principal {
+    gap: 20px;
+    width: 90%;
+}
+
+.body-register .div-buttons-social {
+    width: 100%;
+    gap: 25px;
+
+}
+
+.body-register .button-social {
+    font-family: var(--font-default);
+    font-size: 1.25em;
+    padding: 10px;
+    border: none;
+    background-color: var(--color-defaultW);
+    box-shadow: 4px 0px 9px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    gap: 10px;
+    width: 100%;
+    transition: ease-out 0.2s;
+
+}
+
+.body-register .button-social:hover {
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+}
+
+.body-register .mid-form {
+    margin: 20px 0 20px 0;
+    gap: 10px;
+}
+
+.body-register .mid-form hr {
+    width: 213px;
+}
+
+
+.body-register .div-inputs input {
+    font-size: 1.10em;
+    font-family: var(--font-default);
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: transparent;
+    border-radius: 10px;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.prox-button-register, .voltar-button-register, .cadastrar-button {
+    float: right;
+    border: none;
+    outline: none;
+    background-color: var(--color-principal3);
+    color: var(--color-defaultW);
+    letter-spacing: 3px;
+    font-size: 1.4em;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 9px #7C95FF;
+    transition: ease-out 0.2s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.voltar-button-register, .cadastrar-button{
+    width: 45%;
+}
+.voltar-button-register{
+    color: var(--color-principal3);
+    background-color: var(--color-defaultW);
+    border: 1px solid var(--color-principal3);
+}
+
+.group-buttons{
+    justify-content: space-between;
+}
+
+.body-register .prox-button-register:hover, .voltar-button-register:hover,
+.cadastrar-button:hover {
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+}
+
+.step{
+    display:none;
+}
+
+.step.active {
+    display: block;
+}
+
+.form-group {
+    gap: 5px
+}
+
+.sub-title-etapa{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+
 
 
 
@@ -249,6 +407,7 @@ body {
     text-decoration: none;
 }
 
+
 .navigation .nav-menu:hover> :not(:hover) {
     opacity: .4;
     transform: scale(0.9);
@@ -259,6 +418,7 @@ body {
     cursor: pointer;
     font-size: 1.8315rem;
 }
+
 
 #checkbox {
     display: none;
