@@ -417,6 +417,7 @@ body {
 .navigation .nav-menu i {
     cursor: pointer;
     font-size: 1.8315rem;
+    color: var(--color-principal2);
 }
 
 
@@ -488,7 +489,7 @@ body {
 
 /* RESPONSIVIDADE MENU */
 
-@media (max-width: 868px) {
+@media (max-width: 983px) {
     .navigation {
         padding: 18px 20px;
         transition: 0.3s ease-in-out;
@@ -496,7 +497,7 @@ body {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 883px) {
 
     .navigation .nav-menu {
         display: none;
