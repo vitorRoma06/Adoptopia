@@ -32,8 +32,9 @@ function teste()
 
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
+                $_SESSION['logado'] = 1;
 
-                header("Location: index.html");
+                header("Location: index.php");
 
 
             } else {
