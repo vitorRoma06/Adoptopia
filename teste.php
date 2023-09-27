@@ -10,8 +10,6 @@
 
 <body>
     <header>
-        <!-- Seu cabeçalho e navegação aqui -->
-        <?php include("protect.php"); ?>
         <?php include("navigation.php"); ?>
     </header>
     <main>

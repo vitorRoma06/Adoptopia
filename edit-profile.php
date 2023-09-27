@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
          if($image_update_query){
             move_uploaded_file($update_image_tmp_name, $update_image_folder);
          }
-         $message[] = 'Imagem atualizada do sucesso!';
+         $message[] = 'Imagem atualizada com sucesso!';
          $_SESSION['imagem'] = $update_image;
       }
    }
@@ -49,12 +49,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update profile</title>
+   <title>Editar Perfil - Adoptopia</title>
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/cu.css">
