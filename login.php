@@ -95,7 +95,6 @@ function teste()
         </form>
         <p id="opcao">Você não tem uma conta? <a id="amarelo" href="cadastro.php">Cadastre-se</a></p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 

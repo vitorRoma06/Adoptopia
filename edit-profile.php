@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Editar Perfil - Adoptopia</title>
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/cu.css">
+    <link rel="stylesheet" href="css/user.css">
 
 </head>
 
