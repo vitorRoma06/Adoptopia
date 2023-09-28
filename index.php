@@ -60,7 +60,10 @@ session_start();
                     <img src="imgs/banner-dog.png" alt="cachorro">
                 </div>
                 <div class="slide">
-                    <img src="imgs/banner-dog.png" alt="cachorro">
+                    <img src="imgs/close.png" alt="cachorro">
+                </div>
+                <div class="slide">
+                    <img src="imgs/fc-icon.png" alt="cachorro">
                 </div>
 
                 <div class="navigation-auto">
@@ -69,11 +72,12 @@ session_start();
                     <div class="auto-btn3"></div>
                 </div>
             </div>
+
+            
             <div class="manual-navigation">
                 <label for="radio1" class="manual-btn"></label>
                 <label for="radio2" class="manual-btn"></label>
                 <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
             </div>
 
         </div>

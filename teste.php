@@ -9,9 +9,6 @@
 </head>
 
 <body>
-    <header>
-        <?php include("navigation.php"); ?>
-    </header>
     <main>
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>
