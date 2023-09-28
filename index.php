@@ -50,12 +50,11 @@ session_start();
         </div>
     </header>
     <main>
-        <section class="slides">
-            <!-- Conteúdo da sua página aqui -->
-        </section>
     </main>
     <script src="js/responsive.js"></script>
     <script src="js/user-profile.js"></script>
+    
+
 </body>
 
 </html>

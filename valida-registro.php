@@ -19,9 +19,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $query_usuarios = "INSERT INTO usuarios (nome, email, senha, estado, cidade, telefone, data_nascimento) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
+
+
         $stmt = $mysqli->prepare($query_usuarios);
         $stmt->execute([$nome, $email, $senha, $estado, $cidade, $telefone, $data_nascimento]);
 
+        $query = mysqli_query($mysqli, $query_usuarios);
+
+        if($query){
+
+            ?>
+            <script>
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+              )
+            </script>
+
+            <?php
+        }
         header('Location: login.php');
         exit();
     } catch (PDOException $e) {
@@ -30,3 +47,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }
 ?>
+

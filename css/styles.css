@@ -119,7 +119,7 @@ body {
 .div-inputs input {
     font-size: 1.10em;
     font-family: var(--font-default);
-    outline: none;
+
     border: 1px solid rgb(0, 0, 0);
     background-color: transparent;
     border-radius: 10px;
@@ -226,7 +226,7 @@ body {
 .body-register .div-inputs input {
     font-size: 1.10em;
     font-family: var(--font-default);
-    outline: none;
+
     border: 1px solid rgb(0, 0, 0);
     background-color: transparent;
     border-radius: 10px;
@@ -237,7 +237,7 @@ body {
 .prox-button-register, .voltar-button-register, .cadastrar-button {
     float: right;
     border: none;
-    outline: none;
+
     background-color: var(--color-principal3);
     color: var(--color-defaultW);
     letter-spacing: 3px;
@@ -623,10 +623,7 @@ body {
 /*----------------------------------------------------------------*/
 /* SECTION SLIDES */
 
-.slides {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
+
+  
+
+
