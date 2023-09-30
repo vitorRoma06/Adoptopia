@@ -13,14 +13,7 @@
         <div class="slide">
             <img src="imgs/banner3-cat.png" alt="cachorro">
         </div>
-
-        <div class="navigation-auto">
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-        </div>
     </div>
-
 
     <div class="manual-navigation">
         <label for="radio1" class="manual-btn"></label>

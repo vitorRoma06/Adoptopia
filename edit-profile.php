@@ -76,9 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form action="" method="post" enctype="multipart/form-data">
             <?php
             if ($fetch['imagem'] == '') {
-                echo '<img src="images/default-avatar.png">';
+                echo '<img class="foto-user" src="uploads/default.png">';
             } else {
-                echo '<img src="uploads/' . $fetch['imagem'] . '">';
+                echo '<img class="foto-user" src="uploads/' . $fetch['imagem'] . '">';
             }
             if (isset($message)) {
                 foreach ($message as $message) {

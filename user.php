@@ -5,7 +5,7 @@
 <?php } else {
     $nomeCompleto = $_SESSION['nome'];
     $primeiroNome = explode(' ', $nomeCompleto)[0]; ?>
-    <img src="<?php echo "uploads/" . $_SESSION['imagem']?>" class="foto-user" onclick="toggleMenu()">
+    <img src="<?php echo "uploads/" . $_SESSION['imagem']?>" onclick="toggleMenu()">
     <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
             <div class="user-info">
