@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações de Fonte</title>
+    <style>
+        #font-size-slider {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Configurações de Fonte</h1>
+    <label for="font-size-slider">Tamanho da Fonte:</label>
+    <input type="range" id="font-size-slider" min="10" max="60"> 
+    <p>Arraste o controle deslizante para ajustar o tamanho da fonte.</p>
+
+    <script>
+        // Obtém a referência para o controle deslizante de tamanho da fonte
+        const fontSizeSlider = document.getElementById('font-size-slider');
+
+        // Função para atualizar o tamanho da fonte
+        function updateFontSize() {
+            const fontSize = fontSizeSlider.value;
+            document.body.style.fontSize = `${fontSize}px`;
+
+            // Armazena o tamanho da fonte em localStorage
+            localStorage.setItem('fontSize', fontSize);
+        }
+
+        // Verifica se há um tamanho de fonte armazenado em localStorage
+        const storedFontSize = localStorage.getItem('fontSize');
+        if (storedFontSize) {
+            fontSizeSlider.value = storedFontSize;
+            updateFontSize(); // Aplica o tamanho de fonte armazenado
+        }
+
+        // Adiciona um EventListener a fim de atualizar o tamanho da fonte quando o controle deslizante é movido
+        fontSizeSlider.addEventListener('input', updateFontSize);
+    </script>
+</body>
+</html>

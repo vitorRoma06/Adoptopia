@@ -1,3 +1,10 @@
+<script>
+    // Recupera o tamanho da fonte do localStorage
+    const storedFontSize = localStorage.getItem('fontSize');
+    if (storedFontSize) {
+        document.body.style.fontSize = `${storedFontSize}px`;
+    }
+</script>
 <?php
 include("conexao.php");
 
@@ -104,7 +111,7 @@ $sql_query = $mysqli->query("SELECT nomeArquivo, path, created_at FROM animais")
     <input type="submit" value="Enviar">
 </form>
 
-<table border="1" cellpadding="10">
+<!-- <table border="1" cellpadding="10">
     <thead>
         <th>Preview</th>
         <th>Arquivo</th>
@@ -123,4 +130,4 @@ $sql_query = $mysqli->query("SELECT nomeArquivo, path, created_at FROM animais")
         }
         ?>
     </tbody>
-</table>
+</table> -->

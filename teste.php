@@ -9,6 +9,14 @@
 </head>
 
 <body>
+<script>
+    // Recupera o tamanho da fonte do localStorage
+    const storedFontSize = localStorage.getItem('fontSize');
+    if (storedFontSize) {
+        document.body.style.fontSize = `${storedFontSize}px`;
+    }
+</script>
+
     <main>
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>
