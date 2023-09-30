@@ -2,14 +2,16 @@
     ?>
     <li class="nav-item"><a href="cadastro.php">Cadastrar</a></li>
     <li class="nav-item"><a href="login.php">Entrar</a></li>
-<?php } else { ?>
+<?php } else {
+    $nomeCompleto = $_SESSION['nome'];
+    $primeiroNome = explode(' ', $nomeCompleto)[0]; ?>
     <img src="<?php echo "uploads/" . $_SESSION['imagem']?>" class="foto-user" onclick="toggleMenu()">
     <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
             <div class="user-info">
                 <img src="<?php echo "uploads/" . $_SESSION['imagem']?>">
                 <h3 class="bold">
-                    <?php echo $_SESSION['nome'] ?>
+                    <?php echo $primeiroNome ?>
                 </h3>   
             </div>
             <hr>
