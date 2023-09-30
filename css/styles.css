@@ -652,15 +652,17 @@ main{
 /* SECTION SLIDES */
 .main {
     display: flex;
+    justify-content: center;
 }
 
 .slider {
-    margin: 0 auto;
     margin-top: 30px;
     max-width: 1400px;
     height: 400px;
     overflow: hidden;
     border-radius: 10px;
+
+    
 }
 
 .slides {
@@ -675,7 +677,6 @@ main{
 
 .slide {
     width: 25%;
-    position: relative;
     transition: 2s ease-in-out;
 }
 
@@ -686,8 +687,6 @@ main{
 }
 
 .manual-navigation {
-    position: absolute;
-    width: 1400px;
     margin-top: -40px;
     display: flex;
     justify-content: center;
@@ -732,9 +731,7 @@ main{
 }
 
 .navigation-auto {
-    position: absolute;
-    width: 1400px;
-    margin-top: 360px;
+    margin-top: -40px;
     display: flex;
     justify-content: center;
 }
