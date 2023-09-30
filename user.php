@@ -5,11 +5,11 @@
 <?php } else {
     $nomeCompleto = $_SESSION['nome'];
     $primeiroNome = explode(' ', $nomeCompleto)[0]; ?>
-    <img src="<?php echo "uploads/" . $_SESSION['imagem']?>" onclick="toggleMenu()">
+    <img class="foto-user" src="<?php echo "uploads/" . $_SESSION['imagem']?>" onclick="toggleMenu()">
     <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
             <div class="user-info">
-                <img src="<?php echo "uploads/" . $_SESSION['imagem']?>">
+                <img class="foto-user" src="<?php echo "uploads/" . $_SESSION['imagem']?>">
                 <h3 class="bold">
                     <?php echo $primeiroNome ?>
                 </h3>   

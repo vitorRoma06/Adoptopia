@@ -324,8 +324,9 @@ body {
 /*---------------------------*/
 
 .foto-user {
-    max-width: 50px;
-    max-height: 50px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
     transition: ease-out 0.2s;
@@ -342,7 +343,7 @@ body {
     position: absolute;
     top: 100%;
     right: 13%;
-    width: 320px;
+    width: 350px;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
@@ -369,8 +370,6 @@ body {
 }
 
 .user-info img {
-    max-width: 70px;
-    border-radius: 50%;
     margin-right: 15px;
 }
 
