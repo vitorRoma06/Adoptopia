@@ -35,11 +35,6 @@
 </head>
 
 <body>
-    <header>
-        <!-- Seu cabeçalho e navegação aqui -->
-        <?php include("protect.php"); ?>
-
-    </header>
     <main>
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>

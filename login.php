@@ -33,6 +33,7 @@ function teste()
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
                 $_SESSION['logado'] = 1;
+                $_SESSION['imagem'] = $usuario['imagem'];
 
                 header("Location: index.php");
 
@@ -95,5 +96,6 @@ function teste()
         <p id="opcao">Você não tem uma conta? <a id="amarelo" href="cadastro.php">Cadastre-se</a></p>
     </div>
 </body>
+
 
 </html>

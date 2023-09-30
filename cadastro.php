@@ -1,9 +1,4 @@
-<?php
-
-include('conexao.php');
-
-?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -49,7 +44,8 @@ include('conexao.php');
                         <label for="password">Senha:</label>
                         <input type="password" name="senha" required>
                         <div>
-                            <button type="button" class="prox-button-register bold">PRÓXIMO</button>
+                            <button type="button" class="prox-button-register bold" id="proxima-etapa">PRÓXIMO</button>
+
                         </div>
                         <p id="opcao">Você tem uma conta? <a id="amarelo" href="login.php">Faça Login</a></p>
                     </div>
@@ -79,6 +75,7 @@ include('conexao.php');
         </form>
     </div>
     <script src="js/multistep.js"></script>
+
 </body>
 
 </html>

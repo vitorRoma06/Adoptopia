@@ -70,12 +70,12 @@ $sql_query = $mysqli->query("SELECT nomeArquivo, path, created_at FROM animais")
 <!-- Formulário de envio de arquivo e informações do animal -->
 <form action="upload.php" method="post" enctype="multipart/form-data">
     <!-- Campos de informações do animal -->
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" required><br>
     <label for="idade">Idade:</label>
     <input type="text" name="idade" required><br>
     <label for="raca">Raça:</label>
     <input type="text" name="raca" required><br>
-    <label for="nome">Nome:</label>
-    <input type="text" name="nome" required><br>
     <label for="cor">Cor:</label>
     <input type="text" name="cor" required><br>
     <label for="porte">Porte:</label>
@@ -100,6 +100,7 @@ $sql_query = $mysqli->query("SELECT nomeArquivo, path, created_at FROM animais")
 
     <!-- Campo de upload de imagem -->
     <input type="file" name="arquivo" accept=".jpg, .png">
+    <input type="submit" value="Enviar">
     <input type="submit" value="Enviar">
 </form>
 
