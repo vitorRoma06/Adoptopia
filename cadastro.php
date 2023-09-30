@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -58,7 +58,7 @@
                         <input type="text" name="estado" required> <br>
 
                         <label for="cidade">Cidade:</label>
-                        <input type="text" name="cidade" required> 
+                        <input type="text" name="cidade" required>
 
                         <label for="telefone">Telefone:</label>
                         <input type="tel" name="telefone" required> <br>
@@ -75,6 +75,7 @@
         </form>
     </div>
     <script src="js/multistep.js"></script>
+    </script>
 
 </body>
 

@@ -1,14 +1,44 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<?php include 'head.php' ?>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Adoptopia - Destaque de Animais</title>
+    <style>
+        /* Estilos CSS para os cards de produtos */
+        .animal-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .animal-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .animal-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .animal-card p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 
 <body>
+    <?php include 'header.php' ?>
     <main>
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>
@@ -22,10 +52,9 @@
                 $result = $stmt->get_result();
 
                 if ($result->num_rows > 0) {
-                    echo '<section class="destaque">';
                     while ($animal = $result->fetch_assoc()) {
                         echo '<div class="animal-card">';
-                        echo  '<img height="300" width="300" src="' . $animal['path'] . '" alt="' . $animal['nome'] . '">';
+                        echo '<img src="' . $animal['path'] . '" alt="' . $animal['nome'] . '">';
                         echo '<h3>' . $animal['nome'] . '</h3>';
                         echo '<p>Idade: ' . $animal['idade'] . ' anos</p>';
                         echo '<p>Raça: ' . $animal['raca'] . '</p>';
@@ -33,7 +62,6 @@
                         // Outras informações sobre o animal
                         echo '</div>';
                     }
-                    echo '</section>';
                 } else {
                     echo '<p>Nenhum animal disponível para adoção no momento.</p>';
                 }
@@ -48,6 +76,8 @@
     <footer>
         <!-- Seu rodapé aqui -->
     </footer>
+    <?php include 'scripts.php' ?>
+
 </body>
 
 </html>
