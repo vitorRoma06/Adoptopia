@@ -1,7 +1,7 @@
 <?php
-
-include 'conexao.php';
 session_start();
+include 'conexao.php';
+
 $user_id = $_SESSION['id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -19,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($update_pass) || !empty($new_pass)) {
         if ($update_pass != $old_pass) {
             $message[] = 'Senha antiga incorreta!';
+        } else if ($update_pass == $new_pass) {
+            $message[] = 'Use uma senha diferente!';
         } else {
             mysqli_query($mysqli, "UPDATE usuarios SET senha = '$new_pass' WHERE id = '$user_id'") or die('query failed');
             $message[] = 'Senha atualizada com sucesso!';
@@ -104,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
 
-            <input type="submit" value="Atualizar Perfil" name="update_profile" class="btn" onclick="alertI()">
+            <input type="submit" value="Atualizar Perfil" name="update_profile" class="btn">
             <a href="index.php" class="delete-btn">Voltar</a>
         </form>
 

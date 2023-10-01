@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include("conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +43,8 @@ session_start();
         <section class="destaque">
             <h2>Animais Disponíveis para Adoção</h2>
             <?php
-            include("conexao.php");
-            $sql = "SELECT * FROM animais WHERE status = 'D'"; // Supondo que 'D' representa animais disponíveis
+
+            $sql = "SELECT * FROM animais";
             $stmt = $mysqli->prepare($sql);
 
             if ($stmt) {
@@ -54,7 +54,7 @@ session_start();
                 if ($result->num_rows > 0) {
                     while ($animal = $result->fetch_assoc()) {
                         echo '<div class="animal-card">';
-                        echo '<img src="' . $animal['path'] . '" alt="' . $animal['nome'] . '">';
+                        echo '<img src="' . $animal['imagem'] . '" alt="' . $animal['nome'] . '">';
                         echo '<h3>' . $animal['nome'] . '</h3>';
                         echo '<p>Idade: ' . $animal['idade'] . ' anos</p>';
                         echo '<p>Raça: ' . $animal['raca'] . '</p>';

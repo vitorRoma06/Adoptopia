@@ -4,9 +4,30 @@ const prevBtn = document.querySelectorAll("form .voltar-button-register");
 const form = document.querySelector("form");
 nextBtn.forEach((button) => {
     button.addEventListener("click", () => {
-        changeStep("next");
+        if (validateForm()) {
+            changeStep("next");
+        }
     });
 });
+
+function validateForm() {
+    const nomeInput = document.querySelector("input[name='nome']");
+    const nomeValue = nomeInput.value.trim();
+    
+
+    const regex = /^[a-zA-Z\s]*$/;
+    
+    if (nomeValue.length < 1 || nomeValue.length > 70 || !regex.test(nomeValue)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Digite seu nome corretamente (apenas letras e espaços são permitidos).',
+        });
+        return false;
+    }
+    return true;
+}
+
 prevBtn.forEach((button) => {
     button.addEventListener("click", () => {
         changeStep("prev");

@@ -253,9 +253,12 @@ body {
     border-radius: 10px;
     box-shadow: 4px 4px 9px #7C95FF;
     transition: ease-out 0.2s;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     width: 50%;
+}
+
+.prox-button-register{
+    width: 100%;
 }
 
 .voltar-button-register,
@@ -289,7 +292,7 @@ body {
 }
 
 .form-group {
-    gap: 5px
+    gap: 15px
 }
 
 .sub-title-etapa {
@@ -505,7 +508,7 @@ main {
 .navigation .nav-menu .nav-item a {
     padding: 0.62rem;
     background-color: var(--color-principal2);
-    border-radius: 0.31rem;
+    border-radius: 1rem;
     text-decoration: none;
     color: var(--color-defaultW);
     transition: 0.2s ease;
