@@ -13,15 +13,26 @@ nextBtn.forEach((button) => {
 function validateForm() {
     const nomeInput = document.querySelector("input[name='nome']");
     const nomeValue = nomeInput.value.trim();
-    
+    const senhaInput = document.querySelector("input[name='senha']");
+    const senhaValue = senhaInput.value;
 
-    const regex = /^[a-zA-Z\s]*$/;
-    
-    if (nomeValue.length < 1 || nomeValue.length > 70 || !regex.test(nomeValue)) {
+
+    const nomeRegex = /^[a-zA-Z\s]*$/;
+    const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/;
+
+
+    if (nomeValue.length < 1 || nomeValue.length > 70 || !nomeRegex.test(nomeValue)) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Digite seu nome corretamente (apenas letras e espaços são permitidos).',
+        });
+        return false;
+    } else if (!senhaRegex.test(senhaValue)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um caractere especial.',
         });
         return false;
     }

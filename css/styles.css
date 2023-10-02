@@ -231,7 +231,6 @@ body {
 .body-register .div-inputs input {
     font-size: 1.10em;
     font-family: var(--font-default);
-
     border: 1px solid rgb(0, 0, 0);
     background-color: transparent;
     border-radius: 10px;
@@ -257,7 +256,7 @@ body {
     width: 50%;
 }
 
-.prox-button-register{
+.prox-button-register {
     width: 100%;
 }
 
@@ -298,6 +297,69 @@ body {
 .sub-title-etapa {
     text-align: center;
     margin-bottom: 20px;
+}
+
+
+/*------ Settings ------*/
+
+.psw input {
+    position: relative;
+    width: 100%;
+}
+
+.eyesenha {
+    right: 30px;
+    --color: #707070;
+    --size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+}
+
+.eyesenha .eye-slash {
+    position: absolute;
+    animation: keyframes-fill .5s;
+}
+
+.eyesenha .eye {
+    position: absolute;
+    animation: keyframes-fill .5s;
+    display: none;
+}
+
+/* ------ On check event ------ */
+.eyesenha input:checked~.eye-slash {
+    display: none;
+}
+
+.eyesenha input:checked~.eye {
+    display: block;
+}
+
+/* ------ Hide the default checkbox ------ */
+.eyesenha input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 
@@ -710,7 +772,7 @@ main {
 
 .manual-btn:hover {
     background-color: var(--color-principal);
-} 
+}
 
 #radio1:checked~.first {
     margin-left: 0;
@@ -723,4 +785,3 @@ main {
 #radio3:checked~.first {
     margin-left: -50%;
 }
-
