@@ -10,7 +10,7 @@ include("conexao.php");
 <title>Quero Adotar - Adoptopia</title>
 <head>
     <style>
-        /* Estilos CSS para os cards de produtos */
+        /* Estilos CSS para os cards de animais*/
         .animal-card {
             border: 1px solid #ddd;
             padding: 10px;
