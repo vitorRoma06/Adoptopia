@@ -5,7 +5,7 @@
             <h1 class="text-logo">Adoptopia</h1>
         </a>
         <ul class="nav-menu">
-            <li><a href="perguntas.html"><i class='bx bx-help-circle'></i></a></li>
+            <li><a href="perguntas.php"><i class='bx bx-help-circle'></i></a></li>
             <li><a href="configuracoes.html"><i class='bx bx-cog'></i></a></li>
             <li><a href="#"><i class='bx bx-bell'></i></a></li>
             <li class="nav-item"><a href="quero-doar.php">Quero Doar</a></li>

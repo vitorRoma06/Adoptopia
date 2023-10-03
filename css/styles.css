@@ -363,10 +363,49 @@ body {
 }
 
 
+/*---------------------------*/
+/*-----------AJUDA----------*/
+/*---------------------------*/
+/*---------------------------*/
+.body-ajuda{
+    height: 100vh;
+}
 
+.container-ajuda {
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-default);
+    max-width: 960px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px ;
+}
 
+.titulo-ajuda {
+    margin: 10px 0 15px 0;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: var(--color-principal2);
+    text-align: center;
+}
 
+.sub-titulo-ajuda {
+    color: var(--color-defaultB);
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 25px 0 15px 0;
+    text-align: center;
+}
 
+.text-ajuda {
+    text-align: justify;
+    font-size: 1.2em;
+}
+
+#blue-ajuda{
+    color: var(--color-principal);
+}
 
 
 

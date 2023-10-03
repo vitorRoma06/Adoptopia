@@ -25,7 +25,7 @@
                 <p>Configurações e Privacidade</p>
                 <span>></span>
             </a>
-            <a href="#" class="sub-menu-link flex-row align-itens">
+            <a href="perguntas.php" class="sub-menu-link flex-row align-itens">
                 <i class='bx bx-help-circle'></i>
                 <p>Ajuda</p>
                 <span>></span>
