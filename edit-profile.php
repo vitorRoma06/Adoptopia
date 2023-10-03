@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
         ?>
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <?php
             if ($fetch['imagem'] == '') {
                 echo '<img class="foto-user" src="uploads/default.png">';
@@ -111,7 +111,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
     </div>
+    <script src="js/aa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>
