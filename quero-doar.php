@@ -14,15 +14,22 @@ include("conexao.php");
         <form action="valida-doacao.php" method="post" enctype="multipart/form-data">
             <!-- Campos de informações do animal -->
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" required><br>
+            <!-- input com lógica para deixar a primeira letra maiúscula padronizada-->
+            <input type="text" name="nome" required oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);"><br>
             <label for="idade">Idade:</label>
-            <input type="text" name="idade" required><br>
-            <label for="raca">Raça:</label>
-            <input type="text" name="raca" required><br>
+            <input type="number" name="idade" required min="0" max="32"><br>
+            <label for="raca">Raça:</label><br>
+            <input type="text" name="raca" required oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);">
             <label for="cor">Cor:</label>
-            <input type="text" name="cor" required><br>
+            <input type="text" name="cor" required oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);"><br>
             <label for="porte">Porte:</label>
-            <input type="text" name="porte" required><br>
+            <select name="porte" required>
+                <option value="mini">Mini</option>
+                <option value="pequeno">Pequeno</option>
+                <option value="médio">Médio</option>
+                <option value="grande">Grande</option>
+                <option value="gigante">Gigante</option>
+            </select><br>
             <label for="sexo">Sexo:</label>
             <input type="radio" name="sexo" value="M" required> Masculino
             <input type="radio" name="sexo" value="F" required> Feminino<br>
@@ -37,7 +44,10 @@ include("conexao.php");
             <label for="situacao">Situação:</label>
             <textarea name="situacao" required></textarea><br>
             <label for="status">Status:</label>
-            <input type="text" name="status" required><br>
+            <select name="status" required>
+                <option value="Disponível">Disponível</option>
+                <option value="Indisponível">Indisponível</option>
+            </select><br>
             <label for="descricao">Descrição:</label>
             <textarea name="descricao" required></textarea><br>
 
