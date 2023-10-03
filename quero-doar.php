@@ -6,7 +6,7 @@ include("conexao.php");
 <html lang="pt-BR">
 
 <?php include 'head.php' ?>
-
+<title>Quero Doar - Adoptopia</title>
 <body>
     <?php include 'header.php' ?>
     <main>

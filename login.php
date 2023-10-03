@@ -52,7 +52,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <head>
 
     <?php include "head.php" ?>
-    <title>Login-Adoptopia</title>
+    <title>Login - Adoptopia</title>
 
 </head>
 

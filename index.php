@@ -6,7 +6,7 @@ session_start();
 <html lang="pt-BR">
 
 <?php include 'head.php' ?>
-
+<title>Home - Adoptopia</title>
 <body>
     <?php include 'header.php' ?>
     <main class="main">

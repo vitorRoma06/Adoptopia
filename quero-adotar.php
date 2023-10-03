@@ -7,7 +7,7 @@ include("conexao.php");
 <html lang="pt-BR">
 
 <?php include 'head.php' ?>
-
+<title>Quero Adotar - Adoptopia</title>
 <head>
     <style>
         /* Estilos CSS para os cards de produtos */

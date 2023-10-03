@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda</title>
-    <?php include 'head.php' ?>
-</head>
+
+<title>Ajuda - Adoptopia</title>
+<?php include 'head.php' ?>
+
 
 <body class="body-ajuda align-itens j-content">
     <div class="container-ajuda">

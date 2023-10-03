@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="pt-BR">
 
 <?php include 'head.php' ?>
+<title>Cadastrar - Adoptopia</title>
 
 <body class="body-register">
     <div class="form-box-register">
