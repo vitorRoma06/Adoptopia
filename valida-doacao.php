@@ -1,8 +1,8 @@
 <?php
 session_start();
 include("conexao.php");
-$animal_id = $_SESSION['id'];
-
+if (isset($_SESSION['id'])) {
+    $animal_id = $_SESSION['id'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
@@ -52,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // }
         $nome_pet = $_POST['nome'];
         $idade_pet = $_POST['idade'];
+        $tipo_pet = $_POST['tipo-animal'];
         $raca_pet = $_POST['raca'];
         $cor_pet = $_POST['cor'];
         $porte_pet = $_POST['porte'];
@@ -62,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $situacao_pet = $_POST['situacao'];
         $status_pet = $_POST['status'];
         $descricao_pet = $_POST['descricao'];
+        
 
 
         $imagem_pet = $_FILES['arquivo']['name'];
@@ -74,10 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $message[] = 'Imagem muito grande';
             } else {
                 move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
-                $query_animais = "INSERT INTO animais (nome, idade, raca, cor, porte, sexo, vacinado, castrado, patologia, situacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, situacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
 
                 $stmt = $mysqli->prepare($query_animais);
-                $stmt->bind_param("ssssssssssss", $nome_pet, $idade_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $situacao_pet, $descricao_pet, $imagem_pet_folder);
+                $stmt->bind_param("ssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $situacao_pet, $descricao_pet, $imagem_pet_folder);
                 $stmt->execute();
 
                 header('Location: quero-adotar.php');
@@ -86,8 +88,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
 
-    } catch (PDOException $e) {
-        echo 'Erro ao conectar ao banco de dados: ' . $e->getMessage();
+        }   catch (PDOException $e) {
+                echo 'Erro ao conectar ao banco de dados: ' . $e->getMessage();
+        } 
+    } else {
+        echo "A variável de sessão 'id' não está definida.";
     }
 }
 ?>

@@ -18,6 +18,8 @@ include("conexao.php");
             <input type="text" name="nome" required oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);"><br>
             <label for="idade">Idade:</label>
             <input type="number" name="idade" required min="0" max="32"><br>
+            <label for="tipo-animal" id="tipo-animal">Tipo de animal:</label><br>
+            <input type="text" name="tipo" required oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);">
             <label for="raca">Raça:</label><br>
             <input type="text" name="raca" required oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);">
             <label for="cor">Cor:</label>
