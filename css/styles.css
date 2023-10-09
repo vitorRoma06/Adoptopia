@@ -299,7 +299,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Estilos para o formulário de doação */
+/* Estilos para o formulário de doação
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -360,6 +360,236 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+ */
+
+/*
+/*---------------------------*/
+/*----Formulario adotar------*/
+/*---------------------------*/
+/*---------------------------*/
+
+.form-adotar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 40px;
+    min-width: 375px;
+    width: 800px;
+    max-width: 1000px;
+    height: 720px;
+    gap: 10px;
+    background-color: var(--color-defaultW);
+    border-radius: 10px;
+    box-shadow: 14px 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.main-quero-adotar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-form-adotar {
+    margin: 30px 0;
+    gap: 40px;
+}
+
+.submit-button {
+    background-color: var(--color-principal3);
+    color: var(--color-defaultW);
+    border: none;
+    letter-spacing: 5px;
+    font-size: 1.4em;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 9px #7C95FF;
+    transition: ease-out 0.2s;
+}
+
+.submit-button:hover {
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+}
+
+.div-inputs-adotar {
+    max-width: 100%;
+    padding: 10px;
+    gap: 15px;
+}
+
+.div-inputs-adotar input {
+    font-size: 1.10em;
+    font-family: var(--font-default);
+
+    border: 1px solid rgb(0, 0, 0);
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* radios */
+
+.radio-button-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.radio-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-button__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-button__label {
+    display: inline-block;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.radio-button__custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    transition: all 0.3s ease;
+}
+
+.radio-button__input:checked+.radio-button__label .radio-button__custom {
+    background-color: var(--color-principal3);
+    border-color: transparent;
+    transform: scale(0.8);
+    box-shadow: 0 0 20px var(--color-principal3);
+}
+
+.radio-button__input:checked+.radio-button__label {
+    color: var(--color-principal3);
+}
+
+.radio-button__label:hover .radio-button__custom {
+    transform: scale(1.2);
+    border-color: var(--color-principal3);
+    box-shadow: 0 0 20px var(--color-principal3);
+}
+
+/* selects */
+
+.select-menu {
+    width: 380px;
+}
+
+.select-menu .select-btn {
+    display: flex;
+    height: 43px;
+    background: #fff;
+    padding: 10px;
+    font-size: 1.10em;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn i {
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.select-menu.active .select-btn i {
+    transform: rotate(-180deg);
+}
+
+.select-menu .options {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.select-menu.active .options {
+    display: block;
+}
+
+.options .option {
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+}
+
+.options .option:hover {
+    background: #F2F2F2;
+}
+
+.option i {
+    font-size: 25px;
+    margin-right: 12px;
+    color: rgba(0, 0, 0, 0.7)
+}
+
+.option .option-text {
+    font-size: 18px;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -430,7 +660,7 @@ input[type="submit"]:hover {
 /*-----------AJUDA----------*/
 /*---------------------------*/
 /*---------------------------*/
-.body-ajuda{
+.body-ajuda {
     height: 100vh;
 }
 
@@ -469,7 +699,7 @@ input[type="submit"]:hover {
     font-size: 1.2em;
 }
 
-#blue-ajuda{
+#blue-ajuda {
     color: var(--color-principal);
 }
 

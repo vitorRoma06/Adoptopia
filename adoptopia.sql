@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2023 at 05:14 AM
+-- Generation Time: Oct 09, 2023 at 03:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,9 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animais` (
   `id` int(11) NOT NULL,
-  `idade` int(11) NOT NULL,
-  `raca` varchar(50) NOT NULL,
   `nome` varchar(100) NOT NULL,
+  `idade` int(11) NOT NULL,
+  `tipo_animal` varchar(255) NOT NULL,
+  `raca` varchar(50) NOT NULL,
   `cor` varchar(20) NOT NULL,
   `porte` varchar(20) NOT NULL,
   `sexo` char(1) NOT NULL,
@@ -39,21 +40,18 @@ CREATE TABLE `animais` (
   `castrado` char(1) NOT NULL,
   `patologia` varchar(200) NOT NULL,
   `situacao` text NOT NULL,
-  `status` varchar(1) NOT NULL,
   `descricao` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `nomeArquivo` varchar(100) DEFAULT NULL,
-  `path` varchar(100) NOT NULL
+  `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `animais`
 --
 
-INSERT INTO `animais` (`id`, `idade`, `raca`, `nome`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `situacao`, `status`, `descricao`, `created_at`, `updated_at`, `nomeArquivo`, `path`) VALUES
-(13, 2, 'BullDog', 'Thor', 'Marrom', 'Pequeno', 'M', 'S', 'N', 'Nenhuma', 'Bem cuidado', '.', 'Nenhuma', '2023-09-28 01:17:35', '2023-09-28 01:17:35', '6514d42f0b5b5.png', 'uploads/6514d42f0b5b5.png'),
-(14, 0, 'dqd', 'dwq', 'wqd', 'dqdq', 'M', 'S', 'S', 'dwq', 'd', 'd', 'dwqd', '2023-09-28 01:19:52', '2023-09-28 01:19:52', '6514d4b8d5abe.png', 'uploads/6514d4b8d5abe.png');
+INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raca`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `situacao`, `descricao`, `data_cadastro`, `imagem`) VALUES
+(17, 'vitor', 12, '', 'Pastor-Alemão', 'Branco', 'dqwdqwd', 'M', 'S', 'S', 'dqwdwq', 'dqwdwq', 'qwdqwd', '2023-09-30 19:57:55', 'uploads/8ff8d4550c88d7f55428d5aa2dcc56a2.jpg'),
+(20, 'vitor', 0, '', 'wefew', 'fwefwe', 'fewfew', 'M', 'S', 'S', 'fewfew', 'fwef', 'ewfew', '2023-09-30 20:53:46', 'uploads/FKSOPrKX0AEMA_2.jpg');
 
 -- --------------------------------------------------------
 
@@ -78,7 +76,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `estado`, `cidade`, `telefone`, `data_nascimento`, `imagem`) VALUES
-(38, 'VITOR DE ROMA HONORIO', 'vitorroma14@gmail.com', '123', 'MG', 'Belo Horizonte', '(31) 3047-0852', '1212-02-12', 'default.png');
+(38, 'VITOR DE ROMA HONORIO', 'vitorroma14@gmail.com', '123', 'MG', 'Belo Horizonte', '(31) 3047-0852', '1212-02-12', 'dXyCLE6M_400x400.jpg'),
+(39, 'VITOR DE ROMA HONORIO', 'vitorroma13@gmail.com', '1234', 'MG', 'Belo Horizonte', '423432', '8000-07-08', 'FKSOPrKX0AEMA_2.jpg'),
+(43, 'Ramon Din3', 'vitorroma12@gmail.com', '1234#Roma', 'MG', 'Belo Horizonte', '(31) 3047-0852', '2132-03-20', 'd97e419b65ae5e662e91103381cd7dbb.jpg'),
+(44, 'VITOo DE ROMA HONORIO', 'vitorroma10@gmail.com', 'Roma#904bola', 'MG', 'Belo Horizonte', '(31) 3047-0853', '2006-02-20', '8ff8d4550c88d7f55428d5aa2dcc56a2.jpg');
 
 --
 -- Indexes for dumped tables
@@ -104,13 +105,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `animais`
 --
 ALTER TABLE `animais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
