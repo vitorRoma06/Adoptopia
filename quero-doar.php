@@ -1,48 +1,53 @@
 <?php
 session_start();
-include 'conexao.php';
 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {    
 
-    $nome_pet = $_POST['nome'];
-    $idade_pet = $_POST['idade'];
-    $tipo_pet = $_POST['tipo-animal'];
-    $raca_pet = $_POST['raca'];
-    $cor_pet = $_POST['cor'];
-    $porte_pet = $_POST['porte'];
-    $sexo_pet = $_POST['radio-group-sexo'];
-    $vacinado_pet = $_POST['radio-group-vacinado'];
-    $castrado_pet = $_POST['radio-group-castrado'];
-    $patologia_pet = $_POST['patologia'];
-    $situacao_pet = $_POST['situacao'];
-    $descricao_pet = $_POST['descricao'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    include 'conexao.php';
 
-
-    if (isset($_FILES['imagem_pet'])) {
-        $imagem_pet = $_FILES['imagem_pet']['name'];
-        $imagem_pet_size = $_FILES['imagem_pet']['size'];
-        $imagem_pet_tmp_name = $_FILES['imagem_pet']['tmp_name'];
-        $imagem_pet_folder = 'uploads/' . $imagem_pet;
-    } else {
-        $message[] = 'Imagem não fornecida';
-    }
+    try {
+        $nome_pet = $_POST['nome'];
+        $idade_pet = $_POST['idade'];
+        $tipo_pet = $_POST['tipo-animal'];
+        $raca_pet = $_POST['raca'];
+        $cor_pet = $_POST['cor'];
+        $porte_pet = $_POST['porte'];
+        $sexo_pet = $_POST['radio-group-sexo'];
+        $vacinado_pet = $_POST['radio-group-vacinado'];
+        $castrado_pet = $_POST['radio-group-castrado'];
+        $patologia_pet = $_POST['patologia'];
+        $situacao_pet = $_POST['situacao'];
+        $descricao_pet = $_POST['descricao'];
 
 
-    if (!empty($imagem_pet)) {
-        if ($imagem_pet_size > 2000000) {
-            $message[] = 'Imagem muito grande';
+        if (isset($_FILES['imagem_pet'])) {
+            $imagem_pet = $_FILES['imagem_pet']['name'];
+            $imagem_pet_size = $_FILES['imagem_pet']['size'];
+            $imagem_pet_tmp_name = $_FILES['imagem_pet']['tmp_name'];
+            $imagem_pet_folder = 'uploads/' . $imagem_pet;
         } else {
-            move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
-            $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, situacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
-
-            $stmt = $mysqli->prepare($query_animais);
-            $stmt->bind_param("ssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $situacao_pet, $descricao_pet, $imagem_pet_folder);
-            $stmt->execute();
-
-            header('Location: quero-adotar.php');
-            exit();
+            $message[] = 'Imagem não fornecida';
         }
+
+
+        if (!empty($imagem_pet)) {
+            if ($imagem_pet_size > 2000000) {
+                $message[] = 'Imagem muito grande';
+            } else {
+                move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
+                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, situacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+
+                $stmt = $mysqli->prepare($query_animais);
+                $stmt->bind_param("sssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $situacao_pet, $descricao_pet, $imagem_pet_folder);
+                $stmt->execute();
+
+                header('Location: quero-adotar.php');
+                exit();
+            }
+        }
+    } catch (PDOException $e) {
+        echo 'Erro ao conectar ao banco de dados: ' . $e->getMessage();
     }
 
 
@@ -59,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php include 'header.php' ?>
     <main class="main-quero-adotar">
 
-        <form class="form-adotar" action="quero-doar.php" method="POST">
+        <form class="form-adotar" action="quero-doar.php" method="POST" enctype="multipart/form-data">
             <h1 class="title-form bold">Cadastrar Pet</h1>
             <div class="conteudo-form-adotar flex-row">
                 <div class="column-form-adotar div-inputs-adotar flex-column">

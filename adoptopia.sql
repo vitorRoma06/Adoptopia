@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2023 at 03:48 PM
+-- Generation Time: Oct 16, 2023 at 11:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,7 +51,9 @@ CREATE TABLE `animais` (
 
 INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raca`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `situacao`, `descricao`, `data_cadastro`, `imagem`) VALUES
 (17, 'vitor', 12, '', 'Pastor-Alemão', 'Branco', 'dqwdqwd', 'M', 'S', 'S', 'dqwdwq', 'dqwdwq', 'qwdqwd', '2023-09-30 19:57:55', 'uploads/8ff8d4550c88d7f55428d5aa2dcc56a2.jpg'),
-(20, 'vitor', 0, '', 'wefew', 'fwefwe', 'fewfew', 'M', 'S', 'S', 'fewfew', 'fwef', 'ewfew', '2023-09-30 20:53:46', 'uploads/FKSOPrKX0AEMA_2.jpg');
+(20, 'vitor', 0, 'Gato', 'wefew', 'fwefwe', 'fewfew', 'M', 'N', 'S', 'fewfew', 'fwef', 'ewfew', '2023-09-30 20:53:46', 'uploads/FKSOPrKX0AEMA_2.jpg'),
+(21, 'Vitor', 12, 'Cachorro', 'Pastor-Alemão', 'Branco', 'Cachorro', 'M', 'S', 'S', 'Nenhuma', 'daawd', 'awdawdaw', '2023-10-09 14:45:10', 'uploads/832b2213e207882b949ae307a34736b6.jpg'),
+(22, 'Vitor', 12, 'Cachorro', 'Pastor-Alemão', 'Branco', 'Cachorro', 'M', 'S', 'S', 'dqwd', 'qdqwdwq', 'dqwdwq', '2023-10-09 14:46:06', 'uploads/d97e419b65ae5e662e91103381cd7dbb.jpg');
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `animais`
 --
 ALTER TABLE `animais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
