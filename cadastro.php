@@ -43,7 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             $query_usuarios = "INSERT INTO usuarios (nome, email, senha, estado, cidade, telefone, data_nascimento) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = $mysqli->prepare($query_usuarios);
-            $stmt->execute([$nome, $email, $senha, $estado, $cidade, $telefone, $data_nascimento]);
+            $stmt->bind_param("sssssss", $nome, $email, $senha, $estado, $cidade, $telefone, $data_nascimento);
+            $stmt->execute();
+
 
             header('Location: login.php');
             exit();

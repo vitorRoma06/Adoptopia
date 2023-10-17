@@ -3,9 +3,8 @@ include('conexao.php');
 
 
 
-include('conexao.php');
 if (isset($_POST['email']) || isset($_POST['senha'])) {
-    if (strlen($_POST['email'] == 0) || strlen($_POST['senha'] == 0)) {
+    if (strlen($_POST['email']) == 0 || strlen($_POST['senha']) == 0) {
         echo "Preencha seu email e senha.";
     } else if (strlen($_POST['email']) == 0) {
         echo "Preencha seu email.";
@@ -40,9 +39,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
         } else {
             $message[] = "Falha ao logar! E-mail ou senha incorretos";
         }
+    
     }
 }
-
 
 ?>
 

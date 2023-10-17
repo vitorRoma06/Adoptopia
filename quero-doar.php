@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $vacinado_pet = $_POST['radio-group-vacinado'];
         $castrado_pet = $_POST['radio-group-castrado'];
         $patologia_pet = $_POST['patologia'];
-        $situacao_pet = $_POST['situacao'];
+        $localizacao_pet = $_POST['local-bairro'];
         $descricao_pet = $_POST['descricao'];
 
 
@@ -36,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message[] = 'Imagem muito grande';
             } else {
                 move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
-                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, situacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, localizacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
 
                 $stmt = $mysqli->prepare($query_animais);
-                $stmt->bind_param("sssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $situacao_pet, $descricao_pet, $imagem_pet_folder);
+                $stmt->bind_param("sssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $localizacao_pet, $descricao_pet, $imagem_pet_folder);
                 $stmt->execute();
 
                 header('Location: quero-adotar.php');
@@ -80,8 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <option value="">Escolha uma opção:</option>
                         <option value="Cachorro">Cachorro</option>
                         <option value="Gato">Gato</option>
-                        <option value="Pássaro">Pássaro</option>
-                        <option value="Peixe">Peixe</option>
                     </select>
 
 
@@ -96,11 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label for="porte">Porte:</label>
                     <select name="porte" id="porte">
                         <option value="">Escolha uma opção:</option>
-                        <option value="Cachorro">Mini</option>
-                        <option value="Gato">Pequeno</option>
-                        <option value="Pássaro">Médio</option>
-                        <option value="Peixe">Grande</option>
-                        <option value="Peixe">Gigante</option>
+                        <option value="Mini">Mini</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Gigante">Gigante</option>
                     </select>
                 </div>
                 <div class="column-form-adotar div-inputs-adotar flex-column">
@@ -167,8 +165,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <label for="patologia">Patologia:</label>
                     <input type="text" name="patologia">
-                    <label for="situacao">Situação:</label>
-                    <textarea name="situacao" required></textarea>
+                    <label for="local-bairro">Localização(Bairro):</label>
+                    <input type="text" name="local-bairro">
                     <label for="descricao">Descrição:</label>
                     <textarea name="descricao" required></textarea>
 

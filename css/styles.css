@@ -604,16 +604,14 @@ body {
 
 .main-popup-vermais {
     z-index: 99;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.25);
     display: none;
-    transform: scale(1);
-    transition: opacity 0.2s 0s ease-in-out,
-                transform 0.2s 0s ease-in-out;
+    
 }
 
 

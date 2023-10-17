@@ -74,7 +74,7 @@ $where = implode(' AND ', $condicioes);
                                     <?php echo $animal['nome'] ?>
                                 </p>
                                 <p class="post-animal-descricao">
-                                    <?php echo $animal['descricao'] ?>
+                                    <?php echo $animal['localizacao'] ?>
                                 </p>
                                 <img src="
                             <?php
@@ -103,6 +103,7 @@ $where = implode(' AND ', $condicioes);
                                             <p>Cor: <?php echo $animal['cor'] ?></p>
                                             <p>Porte: <?php echo $animal['porte'] ?></p>
                                             <p>Sexo: <?php echo $animal['sexo'] ?></p>
+                                            <p>Localização: <?php echo $animal['localizacao'] ?></p>
                                             <div class="status-vermais flex-column">
                                                 <p>Status:</p>
                                                 <div class="sts-vac-cas flex-row">
