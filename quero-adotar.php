@@ -74,7 +74,7 @@ $where = implode(' AND ', $condicioes);
                                     <?php echo $animal['nome'] ?>
                                 </p>
                                 <p class="post-animal-descricao">
-                                    <?php echo $animal['localizacao'] ?>
+                                    <?php echo $animal['localização'] ?>
                                 </p>
                                 <img src="
                             <?php
@@ -99,11 +99,11 @@ $where = implode(' AND ', $condicioes);
                                         <div class="inf-animal-vermais flex-column">
                                             <p>Idade: <?php echo $animal['idade'] ?></p>
                                             <p>Animal: <?php echo $animal['tipo_animal'] ?></p>
-                                            <p>Raça: <?php echo $animal['raca'] ?></p>
+                                            <p>Raça: <?php echo $animal['raça'] ?></p>
                                             <p>Cor: <?php echo $animal['cor'] ?></p>
                                             <p>Porte: <?php echo $animal['porte'] ?></p>
                                             <p>Sexo: <?php echo $animal['sexo'] ?></p>
-                                            <p>Localização: <?php echo $animal['localizacao'] ?></p>
+                                            <p>Localização: <?php echo $animal['localização'] ?></p>
                                             <div class="status-vermais flex-column">
                                                 <p>Status:</p>
                                                 <div class="sts-vac-cas flex-row">
@@ -130,7 +130,7 @@ $where = implode(' AND ', $condicioes);
 
                                                 </div>
                                             </div>
-                                            <p>Descrição: <?php echo $animal['descricao'] ?></p>
+                                            <p>Descrição: <?php echo $animal['descrição'] ?></p>
 
                                         </div>
                                     </div>

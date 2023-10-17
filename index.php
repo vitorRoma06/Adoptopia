@@ -15,9 +15,12 @@ $tipo_animal = isset($_GET['tipo_animal']) ? $_GET['tipo_animal'] : 'todos';
         <?php include 'slides.php' ?>
     </main>
 
+    <section class="animais-regiao">
+        
+    </section>
+    
+
     <?php include 'scripts.php' ?>
-
-
 </body>
 
 </html>

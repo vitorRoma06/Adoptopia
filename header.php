@@ -22,13 +22,13 @@
     </nav>
     <div class="mobile-menu">
         <ul class="nav-menu">
-            <li class="nav-item"><a href="teste.php">Quero Doar</a></li>
-            <li class="nav-item"><a href="#">Quero Adotar</a></li>
+            <li class="nav-item"><a href="quero-doar.php">Quero Doar</a></li>
+            <li class="nav-item"><a href="quero-adotar.php">Quero Adotar</a></li>
             <li class="nav-item"><a href="#">Configurações</a></li>
             <li class="nav-item"><a href="#">Notificações</a></li>
             <li class="nav-item"><a href="login.php">Entrar</a></li>
             <li class="nav-item"><a href="cadastro.php">Cadastrar</a></li>
-            <li class="nav-item"><a href="#">Ajuda</a></li>
+            <li class="nav-item"><a href="perguntas.php">Ajuda</a></li>
         </ul>
     </div>
 </header>

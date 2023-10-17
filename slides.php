@@ -1,4 +1,4 @@
-<div class="slider">
+<section class="slider">
     <div class="slides">
         <input type="radio" name="radio-btn" id="radio1">
         <input type="radio" name="radio-btn" id="radio2">
@@ -21,4 +21,4 @@
         <label for="radio3" class="manual-btn"></label>
     </div>
 
-</div>
+</section>

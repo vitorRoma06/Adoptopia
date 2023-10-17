@@ -603,7 +603,7 @@ body {
 /* popup vermais */
 
 .main-popup-vermais {
-    z-index: 99;
+    z-index: 91;
     position: fixed;
     top: 0;
     left: 0;
@@ -1140,17 +1140,27 @@ main {
         display: block;
     }
 
+    .mobile-menu{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.459);
+        backdrop-filter: blur(10px);
+        transition: all 0.5s ease-in;
+        z-index: 89;
+
+    }
     .mobile-menu .nav-menu {
         left: 50%;
         top: 5%;
         position: fixed;
-        z-index: 2;
         padding-top: 110px;
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 1.8rem;
         transform: translate(-50%, 0%);
+        transition: all 0.5s ease-in;
     }
 
     .mobile-menu .nav-menu .nav-item a {
@@ -1158,12 +1168,58 @@ main {
         color: var(--color-principal);
         font-size: 1.5rem;
         transition: 0.2s ease;
+        font-weight:500
     }
 
-    .mobile-menu .nav-menu .nav-item:hover {
-        transform: scale(1.5);
-        transition: 0.5s ease;
-    }
+    .mobile-menu .nav-menu .nav-item {
+        font-size: 17px;
+        background: transparent;
+        border: none;
+        padding: 1em 1.5em;
+        color: #ffedd3;
+        text-transform: uppercase;
+        position: relative;
+        transition: .5s ease;
+      }
+      
+      .mobile-menu .nav-menu .nav-item a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background-color: var(--color-principal2);
+        transition: .5s ease;
+      }
+      
+      .mobile-menu .nav-menu .nav-item a:hover {
+        color: var(--color-defaultW);
+        transition-delay: .5s;
+      }
+      
+      .mobile-menu .nav-menu .nav-item a:hover::before {
+        width: 100%;
+      }
+      
+      .mobile-menu .nav-menu .nav-item a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        width: 100%;
+        border-radius: 10px 10px 0px 0px;
+        background-color: var(--color-principal2);
+        transition: .4s ease;
+        z-index: -1;
+      }
+      
+      .mobile-menu .nav-menu .nav-item a:hover::after {
+        height: 100%;
+        transition-delay: 0.4s;
+        color: aliceblue;
+      }
 
     .open {
         display: block;
@@ -1243,4 +1299,11 @@ main {
 
 #radio3:checked~.first {
     margin-left: -50%;
+}
+
+
+/* SECTION Animais */
+
+.animais-regiao{
+    
 }

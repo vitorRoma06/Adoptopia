@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message[] = 'Imagem muito grande';
             } else {
                 move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
-                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, localizacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raça, cor, porte, sexo, vacinado, castrado, patologia, localização, descrição, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
 
                 $stmt = $mysqli->prepare($query_animais);
                 $stmt->bind_param("sssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $localizacao_pet, $descricao_pet, $imagem_pet_folder);
