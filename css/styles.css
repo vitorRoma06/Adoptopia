@@ -589,7 +589,101 @@ body {
     width: 80%;
     margin: 27px 0px 0px 34px;
     font-family: var(--font-default);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
 }
+
+.post-animal-button:hover {
+    background-color: var(--color-defaultW);
+    color: var(--color-principal2);
+    border: 1px var(--color-principal2) inset;
+    transition: all 0.2s ease-in;
+}
+
+/* popup vermais */
+
+.main-popup-vermais {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: none;
+    transform: scale(1);
+    transition: opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+}
+
+
+
+.box-vermais {
+    position: relative;
+    background-color: var(--color-defaultW);
+    min-width: 580px;
+    width: 879px;
+    min-height: 487px;
+    border-radius: 10px;
+    padding: 53px 61px 60px 60px;
+    gap: 10px;
+}
+
+.principal-conteudo-vermais {
+    gap: 10px;
+}
+
+.titulo-box-vermais {
+    font-size: 2.125em;
+}
+
+.nome-vermais {
+    color: var(--color-principal2);
+    font-weight: bold;
+}
+
+.img-animal-vermais {
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.inf-animal-vermais {
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 34px 23px 57px;
+    gap: 14px;
+}
+
+.inf-animal-vermais p {
+    font-size: 1.25em;
+}
+
+.status-vermais {
+    text-align: center;
+}
+
+.sts-vac-cas {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    gap: 97px;
+}
+
+.sts-vac-cas i {
+    font-size: 3em;
+}
+
+.close-vermais {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 4em;
+    cursor: pointer;
+}
+
 
 
 
