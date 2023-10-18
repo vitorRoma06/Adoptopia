@@ -4,7 +4,7 @@
         <?php echo $animal['nome'] ?>
     </p>
     <p class="post-animal-descricao">
-        <?php echo $animal['localização'] ?>
+        <?php echo $animal['localizacao'] ?>
     </p>
     <img src="
                             <?php
@@ -33,7 +33,7 @@
                     <?php echo $animal['tipo_animal'] ?>
                 </p>
                 <p>Raça:
-                    <?php echo $animal['raça'] ?>
+                    <?php echo $animal['raca'] ?>
                 </p>
                 <p>Cor:
                     <?php echo $animal['cor'] ?>
@@ -45,7 +45,7 @@
                     <?php echo $animal['sexo'] ?>
                 </p>
                 <p>Localização:
-                    <?php echo $animal['localização'] ?>
+                    <?php echo $animal['localizacao'] ?>
                 </p>
                 <div class="status-vermais flex-column">
                     <p>Status:</p>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <p>Descrição:
-                    <?php echo $animal['descrição'] ?>
+                    <?php echo $animal['descricao'] ?>
                 </p>
 
             </div>

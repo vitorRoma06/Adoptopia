@@ -20,11 +20,11 @@
                 <p>Editar Perfil</p>
                 <span>></span>
             </a>
-            <a href="#" class="sub-menu-link flex-row align-itens">
+            <!-- <a href="#" class="sub-menu-link flex-row align-itens">
                 <i class='bx bx-cog'></i>
                 <p>Configurações e Privacidade</p>
                 <span>></span>
-            </a>
+            </a> -->
             <a href="perguntas.php" class="sub-menu-link flex-row align-itens">
                 <i class='bx bx-help-circle'></i>
                 <p>Ajuda</p>

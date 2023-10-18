@@ -1,7 +1,11 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-
+if(!isset($_SESSION['id'])){
+    header("Location: login.php");
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     include 'conexao.php';
@@ -17,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $vacinado_pet = $_POST['radio-group-vacinado'];
         $castrado_pet = $_POST['radio-group-castrado'];
         $patologia_pet = $_POST['patologia'];
+        $cidade_pet = $_POST['cidade'];
         $localizacao_pet = $_POST['local-bairro'];
         $descricao_pet = $_POST['descricao'];
 
@@ -36,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message[] = 'Imagem muito grande';
             } else {
                 move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
-                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raça, cor, porte, sexo, vacinado, castrado, patologia, localização, descrição, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, cidade, localizacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
 
                 $stmt = $mysqli->prepare($query_animais);
-                $stmt->bind_param("sssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $localizacao_pet, $descricao_pet, $imagem_pet_folder);
+                $stmt->bind_param("ssssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $cidade_pet, $localizacao_pet, $descricao_pet, $imagem_pet_folder);
                 $stmt->execute();
 
                 header('Location: quero-adotar.php');
@@ -165,6 +170,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <label for="patologia">Patologia:</label>
                     <input type="text" name="patologia">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" name="cidade">
                     <label for="local-bairro">Localização(Bairro):</label>
                     <input type="text" name="local-bairro">
                     <label for="descricao">Descrição:</label>

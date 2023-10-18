@@ -17,15 +17,15 @@ include("validacao-filtros.php");
 
 
         <section class="swiper mySwiper animais-regiao flex-column j-content">
-            <h1 class="titulos-paginas">Pets na região:</h1>
+            <h1 class="titulos-paginas">Pets na sua região:</h1>
             <div class="swiper-wrapper conteudo-principal-animais-regiao flex-row j-content">
 
                 <?php
                 $sql = "SELECT a.*
                 FROM animais AS a
-                INNER JOIN usuarios AS u ON a.localização = u.cidade LIMIT 9";
+                INNER JOIN usuarios AS u ON a.cidade = u.cidade LIMIT 3";
                 $stmt = $mysqli->prepare($sql);
-                if ($stmt) {
+                if ($stmt && isset($_SESSION['id'])) {
                     $stmt->execute();
                     $result = $stmt->get_result();
 
@@ -39,7 +39,7 @@ include("validacao-filtros.php");
                                     <?php echo $animal['nome'] ?>
                                 </p>
                                 <p class="post-animal-descricao">
-                                    <?php echo $animal['localização'] ?>
+                                    <?php echo $animal['localizacao'] ?>
                                 </p>
                                 <img src="
                             <?php
@@ -71,7 +71,7 @@ include("validacao-filtros.php");
                                                 <?php echo $animal['tipo_animal'] ?>
                                             </p>
                                             <p>Raça:
-                                                <?php echo $animal['raça'] ?>
+                                                <?php echo $animal['raca'] ?>
                                             </p>
                                             <p>Cor:
                                                 <?php echo $animal['cor'] ?>
@@ -83,7 +83,7 @@ include("validacao-filtros.php");
                                                 <?php echo $animal['sexo'] ?>
                                             </p>
                                             <p>Localização:
-                                                <?php echo $animal['localização'] ?>
+                                                <?php echo $animal['localizacao'] ?>
                                             </p>
                                             <div class="status-vermais flex-column">
                                                 <p>Status:</p>
@@ -112,7 +112,7 @@ include("validacao-filtros.php");
                                                 </div>
                                             </div>
                                             <p>Descrição:
-                                                <?php echo $animal['descrição'] ?>
+                                                <?php echo $animal['descricao'] ?>
                                             </p>
 
                                         </div>
@@ -126,7 +126,7 @@ include("validacao-filtros.php");
                     }
                     $stmt->close();
                 } else {
-                    echo '<p>Ocorreu um erro ao buscar os animais disponíveis.</p>';
+                    echo '<p>Por enquanto não existem pets na sua região.</p>';
                 }
                 $mysqli->close();
 
@@ -146,7 +146,7 @@ include("validacao-filtros.php");
             centeredSlides: true,
             slidesPerView: "auto",
             coverflowEffect: {
-                rotate: 60,
+                rotate: 40,
                 stretch: 0,
                 depth: 70,
                 modifier: 1,

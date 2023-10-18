@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2023 at 04:20 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: 18-Out-2023 às 16:15
+-- Versão do servidor: 10.1.36-MariaDB
+-- versão do PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `animais`
+-- Estrutura da tabela `animais`
 --
 
 CREATE TABLE `animais` (
@@ -32,43 +33,41 @@ CREATE TABLE `animais` (
   `nome` varchar(100) NOT NULL,
   `idade` int(11) NOT NULL,
   `tipo_animal` varchar(255) NOT NULL,
-  `raça` varchar(50) NOT NULL,
+  `raca` varchar(50) NOT NULL,
   `cor` varchar(20) NOT NULL,
   `porte` varchar(20) NOT NULL,
   `sexo` char(1) NOT NULL,
   `vacinado` char(1) NOT NULL,
   `castrado` char(1) NOT NULL,
   `patologia` varchar(200) NOT NULL,
-  `localização` text NOT NULL,
-  `descrição` text NOT NULL,
-  `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `cidade` varchar(255) NOT NULL,
+  `localizacao` text NOT NULL,
+  `descricao` text NOT NULL,
+  `data_cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `imagem` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `animais`
+-- Extraindo dados da tabela `animais`
 --
 
-INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raça`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `localização`, `descrição`, `data_cadastro`, `imagem`) VALUES
-(17, 'vitor', 12, '', 'Pastor-Alemão', 'Branco', 'dqwdqwd', 'M', 'S', 'S', 'dqwdwq', 'Belo Horizonte', 'qwdqwd', '2023-09-30 19:57:55', 'uploads/8ff8d4550c88d7f55428d5aa2dcc56a2.jpg'),
-(20, 'vitor', 0, 'Gato', 'wefew', 'fwefwe', 'fewfew', 'M', 'N', 'S', 'fewfew', 'Belo Horizonte', 'ewfew', '2023-09-30 20:53:46', 'uploads/FKSOPrKX0AEMA_2.jpg'),
-(21, 'Vitor', 12, 'Cachorro', 'Pastor-Alemão', 'Branco', 'Cachorro', 'M', 'S', 'S', 'Nenhuma', 'Belo Horizonte', 'awdawdaw', '2023-10-09 14:45:10', 'uploads/832b2213e207882b949ae307a34736b6.jpg'),
-(22, 'Vitor', 12, 'Cachorro', 'Pastor-Alemão', 'Branco', 'Cachorro', 'M', 'S', 'S', 'dqwd', 'qdqwdwq', 'dqwdwq', '2023-10-09 14:46:06', 'uploads/d97e419b65ae5e662e91103381cd7dbb.jpg');
+INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raca`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `cidade`, `localizacao`, `descricao`, `data_cadastro`, `imagem`) VALUES
+(23, 'Bella', 2, 'Cachorro', 'Golden Retrevier', 'Dourado', 'MÃ©dio', 'F', 'S', 'S', 'Nenhuma', 'Belo Horizonte', 'Lourdes', 'Bella Ã© adorÃ¡vel e brincalhona.', '2023-10-18 13:58:30', 'uploads/bella1.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cidades`
+-- Estrutura da tabela `cidades`
 --
 
 CREATE TABLE `cidades` (
   `id` int(11) NOT NULL,
   `nome` varchar(120) DEFAULT NULL,
   `id_estado` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cidades`
+-- Extraindo dados da tabela `cidades`
 --
 
 INSERT INTO `cidades` (`id`, `nome`, `id_estado`) VALUES
@@ -5642,17 +5641,17 @@ INSERT INTO `cidades` (`id`, `nome`, `id_estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estados`
+-- Estrutura da tabela `estados`
 --
 
 CREATE TABLE `estados` (
   `id` int(11) NOT NULL,
   `nome` varchar(75) DEFAULT NULL,
   `uf` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `estados`
+-- Extraindo dados da tabela `estados`
 --
 
 INSERT INTO `estados` (`id`, `nome`, `uf`) VALUES
@@ -5687,7 +5686,7 @@ INSERT INTO `estados` (`id`, `nome`, `uf`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -5700,10 +5699,10 @@ CREATE TABLE `usuarios` (
   `telefone` varchar(20) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `imagem` varchar(100) NOT NULL DEFAULT 'default.png'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `estado`, `cidade`, `telefone`, `data_nascimento`, `imagem`) VALUES
@@ -5749,7 +5748,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `animais`
 --
 ALTER TABLE `animais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `cidades`
