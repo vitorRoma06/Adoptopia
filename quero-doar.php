@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
                     <label for="porte">Porte:</label>
-                    <select name="porte" id="porte">
+                    <select name="porte" id="porte" required>
                         <option value="">Escolha uma opção:</option>
                         <option value="Mini">Mini</option>
                         <option value="Pequeno">Pequeno</option>

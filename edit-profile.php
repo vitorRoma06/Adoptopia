@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
     </div>
-    <script src="js/aa.js"></script>
+    <script src="js/avalidacao-senha-editar-perfil.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

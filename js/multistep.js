@@ -4,7 +4,7 @@ const prevBtn = document.querySelectorAll("form .voltar-button-register");
 const form = document.querySelector("form");
 nextBtn.forEach((button) => {
     button.addEventListener("click", () => {
-        if (validateForm() && validateSelect()) {
+        if (validateForm()) {
             changeStep("next");
         }
     });
@@ -39,18 +39,6 @@ function validateForm() {
     return true;
 }
 
-function validateSelect() {
-    const selectInput = document.querySelector("select[name='estado']");
-    if (selectInput.value === "") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Selecione seu estado.',
-        });
-        return false;
-    }
-    return true;
-}
 
 prevBtn.forEach((button) => {
     button.addEventListener("click", () => {

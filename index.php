@@ -15,7 +15,6 @@ include("validacao-filtros.php");
     <main class="main-index flex-column j-content align-itens">
         <?php include 'slides.php' ?>
 
-
         <section class="swiper mySwiper animais-regiao flex-column j-content">
             <h1 class="titulos-paginas">Pets na sua região:</h1>
             <div class="swiper-wrapper conteudo-principal-animais-regiao flex-row j-content">
@@ -23,7 +22,7 @@ include("validacao-filtros.php");
                 <?php
                 $sql = "SELECT a.*
                 FROM animais AS a
-                INNER JOIN usuarios AS u ON a.cidade = u.cidade LIMIT 3";
+                INNER JOIN usuarios AS u ON a.cidade = u.cidade LIMIT 9";
                 $stmt = $mysqli->prepare($sql);
                 if ($stmt && isset($_SESSION['id'])) {
                     $stmt->execute();

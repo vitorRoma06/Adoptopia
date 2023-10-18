@@ -25,11 +25,11 @@
                 <p>Configurações e Privacidade</p>
                 <span>></span>
             </a> -->
-            <a href="perguntas.php" class="sub-menu-link flex-row align-itens">
+            <!-- <a href="perguntas.php" class="sub-menu-link flex-row align-itens">
                 <i class='bx bx-help-circle'></i>
                 <p>Ajuda</p>
                 <span>></span>
-            </a>
+            </a> -->
             <a href="logout.php" class="sub-menu-link flex-row align-itens">
                 <i class='bx bx-exit'></i>
                 <p>Sair</p>

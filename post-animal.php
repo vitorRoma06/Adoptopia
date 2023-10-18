@@ -4,7 +4,7 @@
         <?php echo $animal['nome'] ?>
     </p>
     <p class="post-animal-descricao">
-        <?php echo $animal['localizacao'] ?>
+        <?php echo $animal['localizacao'] . " - " . $animal['cidade'] ?>
     </p>
     <img src="
                             <?php
@@ -20,7 +20,7 @@
 <div class="main-popup-vermais flex-column j-content align-itens">
     <div class="box-vermais flex-column">
         <i class='bx bx-x close-vermais'></i>
-        <h1 class="titulo-box-vermais">Conheça o <span class="nome-vermais">
+        <h1 class="titulo-box-vermais">Conheça <span class="nome-vermais">
                 <?php echo $animal['nome'] ?>
             </span></h1>
         <div class="principal-conteudo-vermais flex-row">
@@ -45,7 +45,7 @@
                     <?php echo $animal['sexo'] ?>
                 </p>
                 <p>Localização:
-                    <?php echo $animal['localizacao'] ?>
+                    <?php echo $animal['localizacao'] . " - " . $animal['cidade'] ?>
                 </p>
                 <div class="status-vermais flex-column">
                     <p>Status:</p>
