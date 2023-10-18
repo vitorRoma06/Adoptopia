@@ -32,6 +32,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['logado'] = 1;
             $_SESSION['imagem'] = $usuario['imagem'];
+            $_SESSION['$cidade'] = $usuario['cidade'];
 
             header("Location: index.php");
 

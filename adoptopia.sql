@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2023 at 11:26 PM
+-- Generation Time: Oct 18, 2023 at 02:03 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,15 +32,15 @@ CREATE TABLE `animais` (
   `nome` varchar(100) NOT NULL,
   `idade` int(11) NOT NULL,
   `tipo_animal` varchar(255) NOT NULL,
-  `raca` varchar(50) NOT NULL,
+  `raça` varchar(50) NOT NULL,
   `cor` varchar(20) NOT NULL,
   `porte` varchar(20) NOT NULL,
   `sexo` char(1) NOT NULL,
   `vacinado` char(1) NOT NULL,
   `castrado` char(1) NOT NULL,
   `patologia` varchar(200) NOT NULL,
-  `situacao` text NOT NULL,
-  `descricao` text NOT NULL,
+  `localização` text NOT NULL,
+  `descrição` text NOT NULL,
   `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
   `imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -49,7 +49,7 @@ CREATE TABLE `animais` (
 -- Dumping data for table `animais`
 --
 
-INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raca`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `situacao`, `descricao`, `data_cadastro`, `imagem`) VALUES
+INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raça`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `localização`, `descrição`, `data_cadastro`, `imagem`) VALUES
 (17, 'vitor', 12, '', 'Pastor-Alemão', 'Branco', 'dqwdqwd', 'M', 'S', 'S', 'dqwdwq', 'dqwdwq', 'qwdqwd', '2023-09-30 19:57:55', 'uploads/8ff8d4550c88d7f55428d5aa2dcc56a2.jpg'),
 (20, 'vitor', 0, 'Gato', 'wefew', 'fwefwe', 'fewfew', 'M', 'N', 'S', 'fewfew', 'fwef', 'ewfew', '2023-09-30 20:53:46', 'uploads/FKSOPrKX0AEMA_2.jpg'),
 (21, 'Vitor', 12, 'Cachorro', 'Pastor-Alemão', 'Branco', 'Cachorro', 'M', 'S', 'S', 'Nenhuma', 'daawd', 'awdawdaw', '2023-10-09 14:45:10', 'uploads/832b2213e207882b949ae307a34736b6.jpg'),
