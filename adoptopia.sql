@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Out-2023 às 17:41
+-- Generation Time: 18-Out-2023 às 19:51
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 7.2.11
 
@@ -54,7 +54,8 @@ CREATE TABLE `animais` (
 INSERT INTO `animais` (`id`, `nome`, `idade`, `tipo_animal`, `raca`, `cor`, `porte`, `sexo`, `vacinado`, `castrado`, `patologia`, `cidade`, `localizacao`, `descricao`, `data_cadastro`, `imagem`) VALUES
 (23, 'Bella', 2, 'Cachorro', 'Golden Retrevier', 'Dourado', 'MÃ©dio', 'F', 'S', 'S', 'Nenhuma', 'Belo Horizonte', 'Lourdes', 'Bella Ã© adorÃ¡vel e brincalhona.', '2023-10-18 13:58:30', 'uploads/bella1.jpg'),
 (24, 'Simba', 3, 'Gato', 'SiamÃªs', 'Branco', 'Pequeno', 'M', 'S', 'N', 'Nenhuma', 'Belo Horizonte', 'Santa Terezinha', 'Ele Ã© um gato muito esperto e inteligente.', '2023-10-18 15:32:46', 'uploads/sibma.jpg'),
-(25, 'Luna', 1, 'Cachorro', 'Labrador', 'Branco', 'MÃ©dio', 'F', 'S', 'S', 'Nenhuma', 'Belo Horizonte', 'Barreiro', 'Luna Ã© energÃ©tica e amorosa.', '2023-10-18 15:39:15', 'uploads/lamrador.jpg');
+(25, 'Luna', 1, 'Cachorro', 'Labrador', 'Branco', 'MÃ©dio', 'F', 'S', 'S', 'Nenhuma', 'Belo Horizonte', 'Barreiro', 'Luna Ã© energÃ©tica e amorosa.', '2023-10-18 15:39:15', 'uploads/lamrador.jpg'),
+(28, 'Mel', 2, 'Cachorro', 'Vira-Lata', 'Branco', 'MÃ©dio', 'F', 'S', 'N', 'Nenhuma', 'Belo Horizonte', 'Santa Terezinha', '-', '2023-10-18 17:45:27', 'uploads/6514a0605c3eb.jpg');
 
 -- --------------------------------------------------------
 
@@ -5708,9 +5709,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `estado`, `cidade`, `telefone`, `data_nascimento`, `imagem`) VALUES
-(38, 'VITOR DE ROMA HONORIO', 'vitorroma14@gmail.com', '123', 'MG', 'Belo Horizonte', '(31) 3047-0852', '1212-02-12', '832b2213e207882b949ae307a34736b6.jpg'),
+(38, 'VITOR DE ROMA HONORIO', 'vitorroma14@gmail.com', 'sd', 'MG', 'Belo Horizonte', '(31) 3047-0852', '1212-02-12', '8c3ef65e64504a0c621d6cdcb382339e.jpg'),
 (44, 'VITOo DE ROMA HONORIO', 'vitorroma10@gmail.com', 'Roma#904bola', 'MG', 'Belo Horizonte', '(31) 3047-0853', '2006-02-20', '8ff8d4550c88d7f55428d5aa2dcc56a2.jpg'),
-(45, 'teste', 'teste@gmail.com', 'Teste#123', 'MG', 'Belo Horizonte', 'ddd', '2006-02-20', 'default.png');
+(45, 'teste', 'teste@gmail.com', 'Teste#123', 'MG', 'Belo Horizonte', 'ddd', '2006-02-20', 'default.png'),
+(46, 'Testeaa', 'teste123@gmail.com', 'Teste123#', 'MG', 'BH', '3333-3333', '2000-01-01', '8ff8d4550c88d7f55428d5aa2dcc56a2.jpg'),
+(47, 'Vitor', 'teste321@gmail.com', 'Teste#123', 'MG', 'Belo Horizonte', '311234-4321', '2006-02-20', '6514a0605c3eb.jpg'),
+(48, 'Teste A', 'teste22@gmail.com', 'Teste123#', 'MG', 'Bh', '3333-3333', '2000-01-01', '8c3ef65e64504a0c621d6cdcb382339e.jpg'),
+(49, 'Iagao', 'iago@gmail.com', 'SexoSexo123#', 'sexo', 'sexo', 'sexo', '2001-01-01', 'default.png'),
+(50, 'Vitor', 'teste34@gmail.com', 'Teste123#', 'MG', 'Belo Horizonte', '31912344321', '2006-02-20', '8ff8d4550c88d7f55428d5aa2dcc56a2.jpg');
 
 --
 -- Indexes for dumped tables
@@ -5749,7 +5755,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `animais`
 --
 ALTER TABLE `animais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `cidades`
@@ -5767,7 +5773,7 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
