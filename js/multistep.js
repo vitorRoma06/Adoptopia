@@ -4,7 +4,7 @@ const prevBtn = document.querySelectorAll("form .voltar-button-register");
 const form = document.querySelector("form");
 nextBtn.forEach((button) => {
     button.addEventListener("click", () => {
-        if (validateForm()) {
+        if (validateForm() && validateSelect()) {
             changeStep("next");
         }
     });
@@ -33,6 +33,19 @@ function validateForm() {
             icon: 'error',
             title: 'Oops...',
             text: 'A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um caractere especial.',
+        });
+        return false;
+    }
+    return true;
+}
+
+function validateSelect() {
+    const selectInput = document.querySelector("select[name='estado']");
+    if (selectInput.value === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Selecione seu estado.',
         });
         return false;
     }

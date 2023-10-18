@@ -4,6 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     include("conexao.php");
 
+    $sql_code_states = "SELECT * FROM estados ORDER BY nome ASC";
+    $sql_query_states = $mysqli->query($sql_code_states) or die($mysqli->error);
     try {
         $nome = $_POST["nome"];
         $email = $_POST["email"];

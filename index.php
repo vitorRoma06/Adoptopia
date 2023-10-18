@@ -49,7 +49,9 @@ include("validacao-filtros.php");
                                 echo "imgs/femea.png";
                             }
                             ?>" alt="" class="post-animal-sexo">
-                                <button id="button-vermais" class="post-animal-button">Ver mais</button>
+                                <a href="quero-adotar.php">
+                                    <button class="post-animal-button">Ver mais</button>
+                                </a>
                             </div>
 
                             <div class="main-popup-vermais flex-column j-content align-itens">
