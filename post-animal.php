@@ -1,10 +1,10 @@
 <div class="post-animal flex-column">
-    <img src="<?php echo $animal['imagem'] ?>" alt="<?php echo $animal['nome'] ?>" class="post-animal-img">
+    <img src="<?php echo $animal['imagem_pet'] ?>" alt="<?php echo $animal['nome_pet'] ?>" class="post-animal-img">
     <p class="post-animal-nome">
-        <?php echo $animal['nome'] ?>
+        <?php echo $animal['nome_pet'] ?>
     </p>
     <p class="post-animal-descricao">
-        <?php echo $animal['localizacao'] . " - " . $animal['cidade'] ?>
+        <?php echo $animal['bairro'] . " - " . $animal['cidade'] ?>
     </p>
     <img src="
                             <?php
@@ -21,13 +21,13 @@
     <div class="box-vermais flex-column">
         <i class='bx bx-x close-vermais'></i>
         <h1 class="titulo-box-vermais">Conheça <span class="nome-vermais">
-                <?php echo $animal['nome'] ?>
+                <?php echo $animal['nome_pet'] ?>
             </span></h1>
         <div class="principal-conteudo-vermais flex-row">
-            <img src="<?php echo $animal['imagem'] ?>" alt="<?php echo $animal['nome'] ?>" class="img-animal-vermais">
+            <img src="<?php echo $animal['imagem_pet'] ?>" alt="<?php echo $animal['nome_pet'] ?>" class="img-animal-vermais">
             <div class="inf-animal-vermais flex-column">
                 <p>Idade:
-                    <?php echo $animal['idade'] ?>
+                    <?php echo $animal['idade']?>
                 </p>
                 <p>Animal:
                     <?php echo $animal['tipo_animal'] ?>
@@ -45,7 +45,7 @@
                     <?php echo $animal['sexo'] ?>
                 </p>
                 <p>Localização:
-                    <?php echo $animal['localizacao'] . " - " . $animal['cidade'] ?>
+                    <?php echo $animal['bairro'] . " - " . $animal['cidade'] ?>
                 </p>
                 <div class="status-vermais flex-column">
                     <p>Status:</p>

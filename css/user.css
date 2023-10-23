@@ -1,18 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 :root {
-   --blue: #4162EF;
-   --dark-blue: #0003ff;
-   --red: #e74c3c;
-   --dark-red: #c0392b;
-   --black: #333;
-   --white: #fff;
-   --light-bg: #eee;
+   --color-defaultB: #000;
+   --color-lightB: #eee;
+   --color-defaultW: #fff;
+   --color-principal: #0003ff;
+   --color-principal2: #3335ff;
+   --color-principal3: #4162EF;
+   --color-red: #e74c3c;
+   --color-dark-red: #c0392b;
    --box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+
+   --font-default: 'Montserrat', sans-serif;
+
 }
 
 * {
-   font-family: 'Poppins', sans-serif;
+   font-family: 'Montserrat', sans-serif;
    margin: 0;
    padding: 0;
    box-sizing: border-box;
@@ -30,7 +34,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-   background-color: var(--blue);
+   background-color: var(--color-principal2);
 }
 
 .btn,
@@ -38,7 +42,7 @@
    width: 100%;
    border-radius: 5px;
    padding: 10px 30px;
-   color: var(--white);
+   color: var(--color-defaultW);
    display: block;
    text-align: center;
    cursor: pointer;
@@ -47,19 +51,19 @@
 }
 
 .btn {
-   background-color: var(--blue);
+   background-color: var(--color-principal2);
 }
 
 .btn:hover {
-   background-color: var(--dark-blue);
+   background-color: var(--color-principal);
 }
 
 .delete-btn {
-   background-color: var(--red);
+   background-color: var(--color-red);
 }
 
 .delete-btn:hover {
-   background-color: var(--dark-red);
+   background-color: var(--color-dark-red);
 }
 
 .message {
@@ -68,14 +72,14 @@
    border-radius: 5px;
    padding: 10px;
    text-align: center;
-   background-color: var(--red);
-   color: var(--white);
+   background-color: var(--color-red);
+   color: var(--color-defaultW);
    font-size: 20px;
 }
 
 .form-container {
    min-height: 100vh;
-   background-color: var(--light-bg);
+   background-color: var(--color-lightB);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -84,7 +88,7 @@
 
 .form-container form {
    padding: 20px;
-   background-color: var(--white);
+   background-color: var(--color-defaultW);
    box-shadow: var(--box-shadow);
    text-align: center;
    width: 500px;
@@ -94,7 +98,7 @@
 .form-container form h3 {
    margin-bottom: 10px;
    font-size: 30px;
-   color: var(--black);
+   color: var(--color-defaultB);
    text-transform: uppercase;
 }
 
@@ -103,19 +107,19 @@
    border-radius: 5px;
    padding: 12px 14px;
    font-size: 18px;
-   color: var(--black);
+   color: var(--color-defaultB);
    margin: 10px 0;
-   background-color: var(--light-bg);
+   background-color: var(--color-lightB);
 }
 
 .form-container form p {
    margin-top: 15px;
    font-size: 20px;
-   color: var(--black);
+   color: var(--color-defaultB);
 }
 
 .form-container form p a {
-   color: var(--red);
+   color: var(--color-red);
 }
 
 .form-container form p a:hover {
@@ -124,7 +128,7 @@
 
 .container {
    min-height: 100vh;
-   background-color: var(--light-bg);
+   background-color: var(--color-lightB);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -133,7 +137,7 @@
 
 .container .profile {
    padding: 20px;
-   background-color: var(--white);
+   background-color: var(--color-defaultW);
    box-shadow: var(--box-shadow);
    text-align: center;
    width: 400px;
@@ -151,17 +155,17 @@
 .container .profile h3 {
    margin: 5px 0;
    font-size: 20px;
-   color: var(--black);
+   color: var(--color-defaultB);
 }
 
 .container .profile p {
    margin-top: 20px;
-   color: var(--black);
+   color: var(--color-defaultB);
    font-size: 20px;
 }
 
 .container .profile p a {
-   color: var(--red);
+   color: var(--color-red);
 }
 
 .container .profile p a:hover {
@@ -170,7 +174,7 @@
 
 .update-profile {
    min-height: 100vh;
-   background-color: var(--light-bg);
+   background-color: var(--color-lightB);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -179,7 +183,7 @@
 
 .update-profile form {
    padding: 20px;
-   background-color: var(--white);
+   background-color: var(--color-defaultW);
    box-shadow: var(--box-shadow);
    text-align: center;
    width: 700px;
@@ -211,16 +215,16 @@
    display: block;
    margin-top: 15px;
    font-size: 17px;
-   color: var(--black);
+   color: var(--color-defaultB);
 }
 
 .update-profile form .flex .inputBox .box {
    width: 100%;
    border-radius: 5px;
-   background-color: var(--light-bg);
+   background-color: var(--color-lightB);
    padding: 12px 14px;
    font-size: 17px;
-   color: var(--black);
+   color: var(--color-defaultB);
    margin-top: 10px;
 }
 

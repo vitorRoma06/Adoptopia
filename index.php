@@ -20,9 +20,9 @@ include("validacao-filtros.php");
             <div class="swiper-wrapper conteudo-principal-animais-regiao flex-row j-content">
 
                 <?php
-                $sql = "SELECT a.*
-                FROM animais AS a
-                INNER JOIN usuarios AS u ON a.cidade = u.cidade LIMIT 9";
+                $sql =  "SELECT * from 
+                animais as a
+                left join usuarios as u on (a.id_usuario = u.id) WHERE u.cidade = (SELECT cidade FROM usuarios WHERE id = {$_SESSION['id']}) limit 9";
                 $stmt = $mysqli->prepare($sql);
                 if ($stmt && isset($_SESSION['id'])) {
                     $stmt->execute();
@@ -32,13 +32,13 @@ include("validacao-filtros.php");
                         while ($animal = $result->fetch_assoc()) {
                             ?>
                             <div class="swiper-slide post-animal flex-column">
-                                <img src="<?php echo $animal['imagem'] ?>" alt="<?php echo $animal['nome'] ?>"
+                                <img src="<?php echo $animal['imagem_pet'] ?>" alt="<?php echo $animal['nome_pet'] ?>"
                                     class="post-animal-img">
                                 <p class="post-animal-nome">
-                                    <?php echo $animal['nome'] ?>
+                                    <?php echo $animal['nome_pet'] ?>
                                 </p>
                                 <p class="post-animal-descricao">
-                                    <?php echo $animal['localizacao'] ?>
+                                    <?php echo $animal['bairro'] . " - " . $animal["cidade"] ?>
                                 </p>
                                 <img src="
                             <?php
@@ -57,10 +57,10 @@ include("validacao-filtros.php");
                                 <div class="box-vermais flex-column">
                                     <i class='bx bx-x close-vermais'></i>
                                     <h1 class="titulo-box-vermais">Conheça o <span class="nome-vermais">
-                                            <?php echo $animal['nome'] ?>
+                                            <?php echo $animal['nome_pet'] ?>
                                         </span></h1>
                                     <div class="principal-conteudo-vermais flex-row">
-                                        <img src="<?php echo $animal['imagem'] ?>" alt="<?php echo $animal['nome'] ?>"
+                                        <img src="<?php echo $animal['imagem_pet'] ?>" alt="<?php echo $animal['nome_pet'] ?>"
                                             class="img-animal-vermais">
                                         <div class="inf-animal-vermais flex-column">
                                             <p>Idade:
@@ -82,7 +82,7 @@ include("validacao-filtros.php");
                                                 <?php echo $animal['sexo'] ?>
                                             </p>
                                             <p>Localização:
-                                                <?php echo $animal['localizacao'] ?>
+                                                <?php echo $animal['bairro'] . " - " . $animal["cidade"] ?>
                                             </p>
                                             <div class="status-vermais flex-column">
                                                 <p>Status:</p>
@@ -151,7 +151,6 @@ include("validacao-filtros.php");
                 modifier: 1,
                 slideShadows: true,
             },
-            loop: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,

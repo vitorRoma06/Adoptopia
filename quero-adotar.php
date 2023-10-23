@@ -13,8 +13,10 @@ include("validacao-filtros.php");
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<?php include 'head.php' ?>
-<title>Quero Adotar - Adoptopia</title>
+<head>
+    <?php include 'head.php' ?>
+    <title>Quero Adotar - Adoptopia</title>
+</head>
 
 <body>
     <?php include 'header.php' ?>
@@ -44,7 +46,9 @@ include("validacao-filtros.php");
             <section class="animais-disponiveis flex-row j-content">
                 <?php
 
-                $sql = "SELECT * FROM animais";
+                $sql = "SELECT * from 
+                animais as a
+                left join usuarios as u on (a.id_usuario = u.id)";
                 if (!empty($where)) {
                     $sql .= " WHERE $where";
                 }

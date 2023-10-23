@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     include 'conexao.php';
 
     try {
+        $id_usuario = $_SESSION['id'];
         $nome_pet = $_POST['nome'];
         $idade_pet = $_POST['idade'];
         $tipo_pet = $_POST['tipo-animal'];
@@ -21,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $vacinado_pet = $_POST['radio-group-vacinado'];
         $castrado_pet = $_POST['radio-group-castrado'];
         $patologia_pet = $_POST['patologia'];
-        $cidade_pet = $_POST['cidade'];
         $localizacao_pet = $_POST['local-bairro'];
         $descricao_pet = $_POST['descricao'];
 
@@ -41,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message[] = 'Imagem muito grande';
             } else {
                 move_uploaded_file($imagem_pet_tmp_name, $imagem_pet_folder);
-                $query_animais = "INSERT INTO animais (nome, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, cidade, localizacao, descricao, data_cadastro, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
+                $query_animais = "INSERT INTO animais (id_usuario, nome_pet, idade, tipo_animal, raca, cor, porte, sexo, vacinado, castrado, patologia, bairro, descricao, data_cadastro, imagem_pet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
 
                 $stmt = $mysqli->prepare($query_animais);
-                $stmt->bind_param("ssssssssssssss", $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $cidade_pet, $localizacao_pet, $descricao_pet, $imagem_pet_folder);
+                $stmt->bind_param("ssssssssssssss", $id_usuario, $nome_pet, $idade_pet, $tipo_pet, $raca_pet, $cor_pet, $porte_pet, $sexo_pet, $vacinado_pet, $castrado_pet, $patologia_pet, $localizacao_pet, $descricao_pet, $imagem_pet_folder);
                 $stmt->execute();
 
                 header('Location: quero-adotar.php');
@@ -67,21 +67,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <?php include 'header.php' ?>
-    <main class="main-quero-adotar">
+    <main class="main-quero-adotar flex-column j-content align-itens">
 
         <form class="form-adotar" action="quero-doar.php" method="POST" enctype="multipart/form-data">
             <h1 class="title-form bold">Cadastrar Pet</h1>
-            <div class="conteudo-form-adotar flex-row">
+            <div class="conteudo-form-adotar flex-row j-content">
                 <div class="column-form-adotar div-inputs-adotar flex-column">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" required
-                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);">
+                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);" placeholder="Nome do Pet">
                     <label for="idade">Idade:</label>
-                    <input type="number" name="idade" required min="0" max="32">
+                    <input type="number" name="idade" required min="0" max="32" placeholder="Idade do Pet">
 
                     <label for="tipo-animal">Tipo de Animal:</label>
 
-                    <select name="tipo-animal" id="tipo-animal">
+                    <select name="tipo-animal" id="tipo-animal" required>
                         <option value="">Escolha uma opção:</option>
                         <option value="Cachorro">Cachorro</option>
                         <option value="Gato">Gato</option>
@@ -90,10 +90,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <label for="raca">Raça:</label>
                     <input type="text" name="raca" required
-                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);">
+                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);" placeholder="Raça do Pet">
                     <label for="cor">Cor:</label>
                     <input type="text" name="cor" required
-                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);">
+                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);" placeholder="Cor do Pet">
 
 
                     <label for="porte">Porte:</label>
@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <label for="sexo">Sexo:</label>
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="macho" name="radio-group-sexo"
-                                value="Macho">
+                                value="Macho" required>
                             <label class="radio-button__label" for="macho">
                                 <span class="radio-button__custom radio-vacinado"></span>
                                 Macho
@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="fêmea" name="radio-group-sexo"
-                                value="Fêmea">
+                                value="Fêmea" required>
                             <label class="radio-button__label" for="fêmea">
                                 <span class="radio-button__custom" radio-vacinado></span>
                                 Fêmea
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <label for="vacinado">Vacinado:</label>
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="sim" name="radio-group-vacinado"
-                                value="Sim">
+                                value="Sim" required>
                             <label class="radio-button__label" for="sim">
                                 <span class="radio-button__custom"></span>
                                 Sim
@@ -140,10 +140,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="nao" name="radio-group-vacinado"
-                                value="Não">
+                                value="Não" required>
                             <label class="radio-button__label" for="nao">
                                 <span class="radio-button__custom"></span>
                                 Não
+                            </label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" class="radio-button__input" id="nao-sei" name="radio-group-vacinado"
+                                value="Não Sei" required>
+                            <label class="radio-button__label" for="nao-sei">
+                                <span class="radio-button__custom"></span>
+                                Não Sei
                             </label>
                         </div>
                     </div>
@@ -152,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <label for="castrado">Castrado:</label>
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="sim2" name="radio-group-castrado"
-                                value="Sim">
+                                value="Sim" required>
                             <label class="radio-button__label" for="sim2">
                                 <span class="radio-button__custom"></span>
                                 Sim
@@ -160,24 +168,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="nao2" name="radio-group-castrado"
-                                value="Não">
+                                value="Não" required>
                             <label class="radio-button__label" for="nao2">
                                 <span class="radio-button__custom"></span>
                                 Não
                             </label>
                         </div>
+                        <div class="radio-button">
+                            <input type="radio" class="radio-button__input" id="nao-sei2" name="radio-group-castrado"
+                                value="Não Sei" required>
+                            <label class="radio-button__label" for="nao-sei2">
+                                <span class="radio-button__custom"></span>
+                                Não Sei
+                            </label>
+                        </div>
                     </div>
 
                     <label for="patologia">Patologia:</label>
-                    <input type="text" name="patologia">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade">
+                    <input type="text" name="patologia" required placeholder="Patologia do Pet">
                     <label for="local-bairro">Localização(Bairro):</label>
-                    <input type="text" name="local-bairro">
+                    <input type="text" name="local-bairro" required placeholder="Bairro do Pet">
                     <label for="descricao">Descrição:</label>
-                    <textarea name="descricao" required></textarea>
+                    <textarea name="descricao" maxlength="100" placeholder="Descricão do Pet"></textarea>
 
-                    <input type="file" name="imagem_pet" accept="image/jpg, image/jpeg, image/png">
+                    <label for="imagem-animal">Foto do pet:</label>
+                    <input type="file" name="imagem_pet" accept="image/jpg, image/jpeg, image/png" required>
                 </div>
             </div>
             <input class="submit-button bold" type="submit" value="ENVIAR">
