@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!empty($update_pass) || !empty($new_pass)) {
         if ($update_pass != $old_pass) {
-            $message[] = 'Senha antiga incorreta!';
+            header('Location: /edit-profile.php?att=old-pass-incorrect');
         } else if ($update_pass == $new_pass) {
             $message[] = 'Use uma senha diferente!';
         } else {
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($image_update_query) {
                 move_uploaded_file($update_image_tmp_name, $update_image_folder);
             }
-            $message[] = 'Imagem atualizada com sucesso!';
+            header('Location: /edit-profile.php?att=imagesucess');
             $_SESSION['imagem'] = $update_image;
         }
     }
@@ -82,11 +82,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } else {
                 echo '<img class="foto-user" src="uploads/' . $fetch['imagem'] . '">';
             }
-            if (isset($message)) {
-                foreach ($message as $message) {
-                    echo '<div class="message">' . $message . '</div>';
+            if (isset($_GET['att'])) {
+                if ($_GET['att'] == 'imagesucess') {
+                    echo '<div class="message msg-true">Imagem atualizada com sucesso!</div>';
+                } else if ($_GET['att'] == 'old-pass-incorrect') {
+                    echo '<div class="message msg-false">Senha antiga incorreta!</div>';
                 }
             }
+
             ?>
             <div class="flex">
                 <div class="inputBox">
