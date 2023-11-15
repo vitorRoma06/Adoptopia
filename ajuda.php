@@ -6,8 +6,9 @@
 <?php include 'head.php' ?>
 
 
-<body class="body-ajuda align-itens j-content">
-    <div class="container-ajuda">
+<body class="body-ajuda flex-column align-itens">
+
+    <div class="conteudo-ajuda">
         <div class="button-close">
             <a href="index.php"><img src="imgs/close.png" alt="close"></a>
         </div>

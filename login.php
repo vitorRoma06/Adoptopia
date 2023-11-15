@@ -56,14 +56,14 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
 </head>
 
-<body class="body-login">
+<body class="body-login flex-column j-content align-itens">
     <div class="form-box">
         <div class="button-close">
             <a href="index.php"><img src="imgs/close.png" alt="close"></a>
         </div>
         <h1 class="title-form bold">Login</h1>
         <form class="form-login-principal flex-column" action="login.php" method="POST">
-            <div class="div-buttons-social flex-column j-content align-itens">
+            <!-- <div class="div-buttons-social flex-column j-content align-itens">
                 <button type="button" class="button-social flex-row align-itens j-content bold"><img
                         src="imgs/google-icon.png" alt="">
                     <p>Login pelo Google</p>
@@ -77,7 +77,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             <div class="mid-form flex-row align-itens j-content">
                 <hr>ou
                 <hr>
-            </div>
+            </div> -->
             <div class="div-inputs flex-column">
 
                 <input type="text" name="email" required="" placeholder="Digite seu e-mail">

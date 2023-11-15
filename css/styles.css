@@ -24,12 +24,6 @@ body {
     font-family: var(--font-default);
 }
 
-.body-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .bold {
     font-weight: bold;
 }
@@ -73,12 +67,13 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 80px 40px;
-    max-width: 560px;
-    height: 580px;
-    gap: 30px;
+    min-width: 560px;
+    height: 450px;
+    gap: 50px;
     background-color: var(--color-defaultW);
     border-radius: 10px;
     box-shadow: 14px 14px 30px rgba(0, 0, 0, 0.25);
+    transition: min-width 0.2s;
 }
 
 
@@ -92,36 +87,9 @@ body {
     width: 90%;
 }
 
-.div-buttons-social {
-    gap: 25px;
-}
-
-.button-social {
-    font-family: var(--font-default);
-    font-size: 1.25em;
-    padding: 10px;
-    border: none;
-    background-color: var(--color-defaultW);
-    box-shadow: 4px 0px 9px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    gap: 10px;
-    width: 100%;
-    transition: ease-out 0.2s;
-
-}
-
-.button-social:hover {
-    transform: scale(1.05);
-    transition: ease-in 0.2s;
-}
-
 .mid-form {
     gap: 10px;
     margin-bottom: -20px;
-}
-
-.mid-form hr {
-    width: 213px;
 }
 
 .div-inputs {
@@ -131,10 +99,8 @@ body {
 .div-inputs input {
     font-size: 1.10em;
     font-family: var(--font-default);
-
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
     border: none;
-
     background-color: var(--color-lightB);
     border-radius: 5px;
     max-width: 100%;
@@ -162,6 +128,12 @@ body {
     color: rgb(255, 48, 48);
 }
 
+@media (max-width: 768px) {
+    .form-box {
+        transition: min-width 0.2s;
+        min-width: 400px;
+    }
+}
 
 /*Register*/
 
@@ -169,13 +141,13 @@ body {
     position: absolute;
     top: 28px;
     left: 28px;
+    transition: all 0.5s;
 }
 
-.body-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.button-close:hover {
+    transform: rotate(90deg)
 }
+
 
 .body-register .form-box-register {
     position: relative;
@@ -183,8 +155,8 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 70px 40px;
-    width: 560px;
-    height: 630px;
+    min-width: 700px;
+    height: 570px;
     gap: 25px;
     background-color: var(--color-defaultW);
     border-radius: 10px;
@@ -198,64 +170,23 @@ body {
     margin-top: -15px;
 }
 
-.body-register .form-login-principal {
-    gap: 20px;
-    width: 90%;
+.body-register .div-inputs {
+    margin-top: 80px;
 }
-
-.body-register .div-buttons-social {
-    width: 100%;
-    gap: 25px;
-
-}
-
-.body-register .button-social {
-    font-family: var(--font-default);
-    font-size: 1.25em;
-    padding: 10px;
-    border: none;
-    background-color: var(--color-defaultW);
-    box-shadow: 4px 0px 9px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    gap: 10px;
-    width: 100%;
-    transition: ease-out 0.2s;
-
-}
-
-.body-register .button-social:hover {
-    transform: scale(1.05);
-    transition: ease-in 0.2s;
-}
-
-.body-register .mid-form {
-    margin: 20px 0 20px 0;
-    gap: 10px;
-}
-
-.body-register .mid-form hr {
-    width: 213px;
-}
-
 
 .body-register .div-inputs input {
     font-size: 1.10em;
     font-family: var(--font-default);
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
     border: none;
-
     background-color: var(--color-lightB);
     border-radius: 5px;
     max-width: 100%;
     padding: 16px;
 }
 
-.prox-button-register,
-.voltar-button-register,
 .cadastrar-button {
-    float: right;
     border: none;
-
     background-color: var(--color-principal3);
     color: var(--color-defaultW);
     letter-spacing: 3px;
@@ -264,52 +195,63 @@ body {
     border-radius: 10px;
     box-shadow: 4px 4px 9px #7C95FF;
     transition: ease-out 0.2s;
-    margin: 10px 0;
+    margin: 40px 0 0 0;
     width: 50%;
 }
 
-.prox-button-register {
+
+.cadastrar-button {
     width: 100%;
 }
 
-.voltar-button-register,
-.cadastrar-button {
-    width: 45%;
-}
-
-.voltar-button-register {
-    color: var(--color-principal3);
-    background-color: var(--color-defaultW);
-    border: 1px solid var(--color-principal3);
-}
-
-.group-buttons {
-    justify-content: space-between;
-}
-
-.body-register .prox-button-register:hover,
-.voltar-button-register:hover,
 .cadastrar-button:hover {
     transform: scale(1.05);
     transition: ease-in 0.2s;
 }
 
-.step {
-    display: none;
-}
-
-.step.active {
-    display: block;
-}
-
 .form-group {
+    width: 100%;
     gap: 15px
 }
 
-.sub-title-etapa {
-    text-align: center;
-    margin-bottom: 20px;
+
+
+.form-register-principal {
+    gap: 40px;
+    width: 90%;
 }
+
+.select2-container--default .select2-selection--single {
+    display: flex;
+    align-items: center;
+    font-size: 1.10em;
+    font-family: var(--font-default);
+    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    border: none;
+    background-color: var(--color-lightB);
+    border-radius: 5px;
+    max-width: 100%;
+    padding: 6px;
+    height: 53px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 53px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -895,24 +837,20 @@ body {
 /*---------------------------*/
 .body-ajuda {
     height: 100vh;
+
 }
 
-.container-ajuda {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-default);
+.conteudo-ajuda {
+    background-color: var(--color-defaultW);
+    box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.15);
     max-width: 960px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
+    padding: 0px 20px;
     height: 100vh;
 }
 
 .titulo-ajuda {
-    margin: -30px 0 15px 0;
+
+    margin: 100px 0 15px 0;
     font-weight: bold;
     font-size: 2.5em;
     color: var(--color-principal2);
@@ -1440,18 +1378,18 @@ main {
     left: 0;
 }
 
-.no-register{
-    gap:20px;
+.no-register {
+    gap: 20px;
 }
 
-.no-register p{
-    font-size: 2em;
+.no-register p {
+    font-size: 1.8em;
 }
+
 .animais-regiao {
     position: relative;
     margin-top: 90px;
     margin-bottom: 90px;
-    height: 1400px;
     gap: 40px;
 
 }
@@ -1466,7 +1404,7 @@ main {
 }
 
 .swiper {
-    width: 1400px;
+    max-width: 1400px;
     height: 100%;
 }
 
@@ -1502,17 +1440,17 @@ main {
     transition: all 0.2s ease-out;
 }
 
-.rodape{
+.rodape {
     height: 335px;
     background-color: var(--color-principal2);
 }
 
-.rodape img{
+.rodape img {
     max-width: 250px;
     min-width: 170px;
     margin-bottom: 10px;
 }
 
-.rodape p{
-    color:var(--color-defaultW)
+.rodape p {
+    color: var(--color-defaultW)
 }

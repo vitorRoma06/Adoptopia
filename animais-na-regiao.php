@@ -1,6 +1,6 @@
 <section class="swiper mySwiper animais-regiao flex-column align-itens j-content">
     <h1 class="titulos-paginas position-title-h1">Pets na sua região:</h1>
-    <div class="swiper-wrapper conteudo-principal-animais-regiao flex-row j-content">
+    <div class="swiper-wrapper conteudo-principal-animais-regiao flex-row j-content align-itens">
 
         <?php
         if (isset($_SESSION['id'])) {
