@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         $nome = $_POST["nome"];
         $email = $_POST["email"];
-        $senha = $_POST["senha"];
+        $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
         $cidade = $_POST["cidade"];
         $telefone = $_POST["telefone"];
 
@@ -73,17 +73,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <a href="index.php"><img src="imgs/close.png" alt="close"></a>
         </div>
         <h1 class="title-form bold">Cadastrar</h1>
-        <form class="form-register-principal flex-column" action="cadastro.php" method="POST">
+        <form id="form-cadastro" class="form-register-principal flex-column" action="cadastro.php" method="POST">
             <div class="div-inputs flex-row j-content">
 
                 <div class="form-group flex-column">
 
-                    <input type="text" name="nome" required placeholder="Digite seu nome">
+                    <input type="text" name="nome" required placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()">
+                    <span class="span-required">Nome deve ter no mínimo 3 caracteres</span>
+                    
 
-                    <input type="email" name="email" required placeholder="Digite seu email">
+                    <input type="email" name="email" required placeholder="Digite seu email" class="inputs required" oninput="emailValidate()">
+                    <span class="span-required">Digite um email válido</span>
 
                     <div class="psw flex-row">
-                        <input type="password" name="senha" id="password" required placeholder="Digite sua senha">
+                        <input type="password" name="senha" id="password" required placeholder="Digite sua senha"
+                            class="inputs required" oninput="senhaValidate()">
                         <label class="eyesenha">
                             <input type="checkbox" checked="checked">
                             <svg class="eye" id="icon" onclick="showHide()" xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +103,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </path>
                             </svg>
                         </label>
+
                     </div>
+                    <span class="span-required">Minimo 16 caracteres</span>
                 </div>
 
                 <div class="form-group flex-column">
@@ -112,17 +118,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         $sql_query_cities = $mysqli->query($sql_code_cities) or die($mysqli->error);
 
                         while ($cidade = $sql_query_cities->fetch_assoc()) { ?>
-                            <option value="<?php echo $cidade['id']; ?>">
+                            <option value="<?php echo $cidade['nome']; ?>">
                                 <?php echo $cidade['nome']; ?>
                             </option>
                         <?php } ?>
                     </select>
 
 
-                    <input id="telefone" type="tel" name="telefone" required placeholder="Digite seu telefone">
+                    <input id="telefone" type="tel" name="telefone" required placeholder="Digite seu telefone"
+                        class="inputs required" oninput="telefoneValidate()">
+                    <span class="span-required">Digite um telefone válido</span>
 
                     <input id="dataNascimento" type="text" name="data_nascimento" required
-                        placeholder="Data de nascimento">
+                        placeholder="Data de nascimento" class="inputs required" oninput="dataNascimentoValidate()">
+                    <span class="span-required">Você deve ter entre 13 a 100 anos</span>
 
                 </div>
             </div>

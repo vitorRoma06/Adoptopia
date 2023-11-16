@@ -50,6 +50,8 @@ body {
     flex-wrap: wrap;
 }
 
+
+
 #opcao {
     text-align: center;
 }
@@ -68,7 +70,7 @@ body {
     flex-direction: column;
     padding: 80px 40px;
     min-width: 560px;
-    height: 450px;
+    max-height: 450px;
     gap: 50px;
     background-color: var(--color-defaultW);
     border-radius: 10px;
@@ -97,6 +99,7 @@ body {
 }
 
 .form-login-principal .div-inputs input {
+    outline: none;
     font-size: 1.10em;
     font-family: var(--font-default);
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
@@ -156,7 +159,7 @@ body {
     flex-direction: column;
     padding: 70px 40px;
     min-width: 700px;
-    height: 500px;
+    max-height: 800px;
     gap: 25px;
     background-color: var(--color-defaultW);
     border-radius: 10px;
@@ -177,6 +180,7 @@ body {
 }
 
 .body-register .div-inputs input {
+    outline: none;
     font-size: 1.10em;
     font-family: var(--font-default);
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
@@ -185,8 +189,15 @@ body {
     border-radius: 5px;
     max-width: 100%;
     padding: 16px;
+
 }
 
+.span-required {
+    color: #e63636;
+    font-size: 0.9em;
+    margin-top: -10px;
+    display: none;
+}
 .cadastrar-button {
     border: none;
     background-color: var(--color-principal3);
@@ -250,7 +261,6 @@ body {
     .body-register .form-box-register {
         transition: all 0.2s;
         min-width: 400px;
-        height: 690px;
     }
 }
 

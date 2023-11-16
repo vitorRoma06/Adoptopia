@@ -1,8 +1,6 @@
 <?php
 include('conexao.php');
 
-
-
 if (isset($_POST['email']) || isset($_POST['senha'])) {
     if (strlen($_POST['email']) == 0 || strlen($_POST['senha']) == 0) {
         $message[] = "Preencha seu email e senha.";
@@ -12,35 +10,34 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
         $message[] = "Preencha sua senha.";
     } else {
 
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' LIMIT 1";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-        $qt = $sql_query->num_rows;
-
-        if ($qt == 1) {
-
+        if ($sql_query->num_rows > 0) {
             $usuario = $sql_query->fetch_assoc();
 
             if (!isset($_SESSION)) {
                 session_start();
             }
 
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['logado'] = 1;
-            $_SESSION['imagem'] = $usuario['imagem'];
-            $_SESSION['$cidade'] = $usuario['cidade'];
+            if (password_verify($senha, $usuario['senha'])) {
+                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['nome'] = $usuario['nome'];
+                $_SESSION['logado'] = 1;
+                $_SESSION['imagem'] = $usuario['imagem'];
+                $_SESSION['$cidade'] = $usuario['cidade'];
 
-            header("Location: index.php");
-
-
+                header("Location: index.php");
+            } else {
+                $message[] = "Falha ao logar! E-mail ou senha incorretos";
+            }
         } else {
             $message[] = "Falha ao logar! E-mail ou senha incorretos";
         }
-    
+
     }
 }
 
