@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if(!isset($_SESSION['id'])){
+if (!isset($_SESSION['id'])) {
     header("Location: login.php");
 }
 
@@ -62,6 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <?php include 'head.php' ?>
 <title>Quero Doar - Adoptopia</title>
 
@@ -75,7 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="column-form-adotar div-inputs-adotar flex-column">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" required
-                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);" placeholder="Nome do Pet">
+                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);"
+                        placeholder="Nome do Pet">
                     <label for="idade">Idade:</label>
                     <input type="number" name="idade" required min="0" max="32" placeholder="Idade do Pet">
 
@@ -90,10 +93,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <label for="raca">Raça:</label>
                     <input type="text" name="raca" required
-                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);" placeholder="Raça do Pet">
+                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);"
+                        placeholder="Raça do Pet">
                     <label for="cor">Cor:</label>
                     <input type="text" name="cor" required
-                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);" placeholder="Cor do Pet">
+                        oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);"
+                        placeholder="Cor do Pet">
 
 
                     <label for="porte">Porte:</label>
@@ -185,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
 
                     <label for="patologia">Patologia:</label>
-                    <input type="text" name="patologia" required placeholder="Patologia do Pet">
+                    <input type="text" name="patologia" required placeholder="Patologia do Pet" maxlength="34">
                     <label for="local-bairro">Localização(Bairro):</label>
                     <input type="text" name="local-bairro" required placeholder="Bairro do Pet">
                     <label for="descricao">Descrição:</label>
@@ -198,10 +203,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input class="submit-button bold" type="submit" value="ENVIAR">
         </form>
 
-        <script src="js/responsive.js"></script>
-        <script src="js/user-profile.js"></script>
-        <script src="js/selects-form.js"></script>
+
     </main>
+    <script src="js/responsive.js"></script>
+    <script src="js/user-profile.js"></script>
+    <script src="js/selects-form.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tipo-animal').select2();
+            $('#porte').select2();
+        });
+    </script>
+
 
 </body>
 

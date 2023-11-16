@@ -5,11 +5,11 @@ include('conexao.php');
 
 if (isset($_POST['email']) || isset($_POST['senha'])) {
     if (strlen($_POST['email']) == 0 || strlen($_POST['senha']) == 0) {
-        echo "Preencha seu email e senha.";
+        $message[] = "Preencha seu email e senha.";
     } else if (strlen($_POST['email']) == 0) {
-        echo "Preencha seu email.";
+        $message[] = "Preencha seu email.";
     } else if (strlen($_POST['senha']) == 0) {
-        echo "Preencha sua senha.";
+        $message[] = "Preencha sua senha.";
     } else {
 
         $email = $mysqli->real_escape_string($_POST['email']);
@@ -63,21 +63,6 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
         </div>
         <h1 class="title-form bold">Login</h1>
         <form class="form-login-principal flex-column" action="login.php" method="POST">
-            <!-- <div class="div-buttons-social flex-column j-content align-itens">
-                <button type="button" class="button-social flex-row align-itens j-content bold"><img
-                        src="imgs/google-icon.png" alt="">
-                    <p>Login pelo Google</p>
-                </button>
-                <button type="button" class="button-social flex-row align-itens j-content bold"><img
-                        src="imgs/fc-icon.png" alt="">
-                    <p>Login pelo Facebook</p>
-                </button>
-            </div>
-
-            <div class="mid-form flex-row align-itens j-content">
-                <hr>ou
-                <hr>
-            </div> -->
             <div class="div-inputs flex-column">
 
                 <input type="text" name="email" required="" placeholder="Digite seu e-mail">
