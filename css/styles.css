@@ -198,6 +198,7 @@ body {
     margin-top: -10px;
     display: none;
 }
+
 .cadastrar-button {
     border: none;
     background-color: var(--color-principal3);
@@ -532,7 +533,7 @@ body {
 
 
 /*---------------------------*/
-/*----Quedo doar-------------*/
+/*----Quedo adotar-------------*/
 /*---------------------------*/
 /*---------------------------*/
 
@@ -548,13 +549,14 @@ body {
 
 .principal-conteudo-quedo-doar {
     margin-top: 20px;
+    box-sizing: border-box;
 }
 
 .barra-lateral-filtros {
     padding: 20px;
     border-radius: 0px 10px 10px 0px;
-    height: 80vh;
-    width: 200px;
+    height: 50vh;
+    min-width: 200px;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -563,7 +565,7 @@ body {
 }
 
 .form-filtro {
-    margin: 10px;
+    margin-top: 10px;
     gap: 10px;
 }
 
@@ -580,7 +582,7 @@ body {
 }
 
 .animais-disponiveis {
-    gap: 39px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
@@ -588,23 +590,23 @@ body {
 .post-animal {
     position: relative;
     width: 334px;
-    height: 468px;
+    max-height: 600px;
     border-radius: 5px;
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
 }
 
 .post-animal-nome {
-    margin: 19px 0px 0px 34px;
+    margin: 40px 0px 0px 34px;
     font-size: 1.25em;
 }
 
 .post-animal-descricao {
-    margin: 8px 0px 0px 34px;
+    margin: 8px 0px -8px 34px;
 }
 
 .post-animal-sexo {
     position: absolute;
-    top: 277px;
+    top: 266px;
     left: 127px;
     width: 80px;
 }
@@ -613,12 +615,12 @@ body {
     height: 44px;
     border: none;
     background-color: var(--color-principal2);
-    color: var(--color-defaultW);
+    color: #fff;
     font-size: 1.25em;
     font-weight: bold;
     border-radius: 10px;
     width: 80%;
-    margin: 27px 0px 0px 34px;
+    margin: 27px 0px 20px 34px;
     font-family: var(--font-default);
     cursor: pointer;
     transition: all 0.2s ease-out;
@@ -638,116 +640,33 @@ body {
     object-fit: cover;
 }
 
-.post-animal-nome {
-    margin: 19px 0px 0px 34px;
-    font-size: 1.25em;
-}
-
-.post-animal-descricao {
-    margin: 8px 0px 0px 34px;
-}
-
-.post-animal-sexo {
-    position: absolute;
-    top: 277px;
-    left: 127px;
-    width: 80px;
-}
-
-.post-animal-button {
-    height: 44px;
-    border: none;
-    background-color: var(--color-principal2);
-    color: var(--color-defaultW);
-    font-size: 1.25em;
-    font-weight: bold;
-    border-radius: 10px;
-    width: 80%;
-    margin: 27px 0px 0px 34px;
-    font-family: var(--font-default);
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-}
-
-.post-animal-button:hover {
-    background-color: var(--color-defaultW);
-    color: var(--color-principal2);
-    border: 1px var(--color-principal2) inset;
-    transition: all 0.2s ease-in;
-}
-
 /* popup vermais */
 
+
 .main-popup-vermais {
-    z-index: 91;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    display: none;
-
-}
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 87;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
 
 
-
-.box-vermais {
-    position: relative;
+    
     background-color: var(--color-defaultW);
-    min-width: 580px;
-    width: 879px;
-    min-height: 487px;
-    border-radius: 10px;
-    padding: 53px 61px 60px 60px;
-    gap: 10px;
+    padding: 50px 38px;
+
 }
 
-.principal-conteudo-vermais {
-    gap: 10px;
-}
-
-.titulo-box-vermais {
-    font-size: 2.125em;
-}
-
-.nome-vermais {
-    color: var(--color-principal2);
-    font-weight: bold;
-}
-
-.img-animal-vermais {
-    width: 350px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.inf-animal-vermais {
-    border-radius: 10px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
-    padding: 34px 23px 57px;
-    gap: 14px;
-}
-
-.inf-animal-vermais p {
-    font-size: 1.25em;
-}
-
-.status-vermais {
-    text-align: center;
-}
-
-.sts-vac-cas {
-    margin-top: 20px;
-    width: 100%;
-    justify-content: center;
-    gap: 97px;
-}
-
-.sts-vac-cas i {
-    font-size: 3em;
+.main-popup-vermais.aberto {
+    z-index: 87;
+    position: absolute;
+    transition: opacity 1s, visibility 1s;
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .close-vermais {
@@ -757,6 +676,9 @@ body {
     font-size: 4em;
     cursor: pointer;
 }
+
+
+
 
 
 

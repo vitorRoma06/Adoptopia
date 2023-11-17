@@ -1,19 +1,12 @@
+var botao = document.querySelector('.post-animal-button');
+var popup = document.querySelector('.main-popup-vermais');
 
-var verMaisButtons = document.querySelectorAll(".post-animal-button");
-
-
-verMaisButtons.forEach(function(button) {
-  button.addEventListener("click", function(){
-    var popup = button.parentElement.nextElementSibling;
-    popup.style.display = 'flex';
-  });
+botao.addEventListener('click', function() {
+    popup.classList.add('aberto');
 });
 
+var fechar = document.querySelector('.close-vermais');
 
-var closeButtons = document.querySelectorAll(".close-vermais");
-closeButtons.forEach(function(closeButton) {
-  closeButton.addEventListener("click", function(){
-    var popup = closeButton.closest('.main-popup-vermais');
-    popup.style.display = 'none';
-  });
+fechar.addEventListener('click', function() {
+    popup.classList.remove('aberto');
 });

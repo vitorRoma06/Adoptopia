@@ -5,5 +5,6 @@
 <script src="js/user-profile.js"></script>
 <script src="js/slides.js"></script>
 <script src="js/validacao-formulario-cadastro.js"></script>
+<script src="js/selects.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="js/psw.js"></script>

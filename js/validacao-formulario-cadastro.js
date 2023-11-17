@@ -103,7 +103,6 @@ function dataNascimentoValidate() {
 
 
 $(document).ready(function () {
-    $('.cidade').select2();
     $('#dataNascimento').mask('00/00/0000');
     $('#telefone').mask('(00) 00000-0000');
 

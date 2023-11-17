@@ -78,9 +78,6 @@ include("validacao-filtros.php");
 
 
     </main>
-    <footer>
-        <!-- Seu rodapé aqui -->
-    </footer>
     <?php include 'scripts.php' ?>
     <script src="js/ver-mais-quero-adotar.js"></script>
 

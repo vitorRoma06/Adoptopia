@@ -205,19 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     </main>
-    <script src="js/responsive.js"></script>
-    <script src="js/user-profile.js"></script>
-    <script src="js/selects-form.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#tipo-animal').select2();
-            $('#porte').select2();
-        });
-    </script>
-
+    <?php include('scripts.php'); ?>
 
 </body>
 
