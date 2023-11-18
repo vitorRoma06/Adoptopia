@@ -133,12 +133,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ?>
             <div class="flex">
                 <div class="inputBox">
-                    <input type="text" name="update_name" value="<?php echo $_SESSION['nome']; ?>" class="box required">
-                    <input type="email" name="update_email" value="<?php echo $_SESSION['email']; ?>"
-                        class="box required">
+                    <input type="text" name="update_name" value="<?php echo $_SESSION['nome']; ?>" class="box">
+                    <input type="email" name="update_email" value="<?php echo $_SESSION['email']; ?>" class="box">
                     <input type="hidden" name="old_pass" value="<?php echo $_SESSION['senha']; ?>">
                     <input type="password" name="update_pass" placeholder="Digite sua senha antiga" class="box">
-                    <input type="password" name="new_pass" placeholder="Digite sua nova senha" class="box required">
+                    <input type="password" name="new_pass" placeholder="Digite sua nova senha" class="box">
                     <span class="margin-topadd">Atualize sua foto :</span>
                     <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" class="box">
                 </div>

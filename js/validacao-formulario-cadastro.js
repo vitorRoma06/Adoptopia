@@ -88,7 +88,22 @@ function dataNascimentoValidate() {
         return false;
     }
     var partesData = dataNascimento.split("/");
-    var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
+    var dia = parseInt(partesData[0]);
+    var mes = parseInt(partesData[1]);
+    var ano = parseInt(partesData[2]);
+
+    if (mes < 1 || mes > 12) {
+        setError(4);
+        return false;
+    }
+
+    var diasNoMes = new Date(ano, mes, 0).getDate();
+    if (dia < 1 || dia > diasNoMes) {
+        setError(4);
+        return false;
+    }
+
+    var data = new Date(ano, mes - 1, dia);
     var idade = calcularIdade(data);
 
     if (idade < 13 || idade > 100) {
