@@ -25,10 +25,10 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
             if (password_verify($senha, $usuario['senha'])) {
                 $_SESSION['id'] = $usuario['id'];
+                $_SESSION['senha'] = $usuario['senha'];
                 $_SESSION['nome'] = $usuario['nome'];
                 $_SESSION['logado'] = 1;
                 $_SESSION['imagem'] = $usuario['imagem'];
-                $_SESSION['$cidade'] = $usuario['cidade'];
 
                 header("Location: index.php");
             } else {
