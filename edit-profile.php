@@ -12,19 +12,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($update_name != $_SESSION['nome']) {
         if (strlen($update_name) < 3) {
-            header('Location: /edit-profile.php?att=name-too-short');
+            $message[] = array("msg" => "Nome : mínimo 3 caracteres!", "type" => "error");
         } else {
-            header('Location: /edit-profile.php?att=nome-alterado');
-        }
-    }
-    if ($update_email != $_SESSION['email']) {
-        if (!filter_var($update_email, FILTER_VALIDATE_EMAIL)) {
-            header('Location: /edit-profile.php?att=invalid-email');
-        } else {
-            header('Location: /edit-profile.php?att=email-alterado');
+            $message[] = array("msg" => "Nome alterado com sucesso!", "type" => "success");
         }
     }
 
+    if ($update_email != $_SESSION['email']) {
+        if (!filter_var($update_email, FILTER_VALIDATE_EMAIL)) {
+            $message[] = array("msg" => "E-mail inválido.", "type" => "error");
+        } else {
+            $message[] = array("msg" => "Email alterado com sucesso!", "type" => "success");
+        }
+    }
     mysqli_query($mysqli, "UPDATE usuarios SET nome = '$update_name', email = '$update_email' WHERE id = '$user_id'") or die('query failed');
     $_SESSION['nome'] = $update_name;
     $_SESSION['email'] = $update_email;
@@ -41,16 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $old_pass_hash = $_SESSION['senha'];
     if (!empty($update_pass) || !empty($new_pass)) {
         if (!password_verify($update_pass, $old_pass_hash)) {
-            header('Location: /edit-profile.php?att=old-pass-incorrect');
+            $message[] = array("msg" => "Senha antiga incorreta!", "type" => "error");
         } else if ($update_pass == $new_pass) {
-            header('Location: /edit-profile.php?att=same-pass');
+            $message[] = array("msg" => "Use uma senha diferente!", "type" => "error");
         } else if (strlen($new_pass) < 16) {
-            header('Location: /edit-profile.php?att=too-short-pass');
+            $message[] = array("msg" => "Senha: mínimo 16 caracteres!", "type" => "error");
         } else {
             $new_pass = password_hash($new_pass, PASSWORD_DEFAULT);
             mysqli_query($mysqli, "UPDATE usuarios SET senha = '$new_pass' WHERE id = '$user_id'") or die('query failed');
             $_SESSION['senha'] = $new_pass;
-            header('Location: /edit-profile.php?att=sucess-pass');
+            $message[] = array("msg" => "Senha alterada com sucesso!", "type" => "success");
         }
     }
 
@@ -61,13 +61,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!empty($update_image)) {
         if ($update_image_size > 2000000) {
-            $message[] = 'Imagem muito grande';
+            $message[] = array("msg" => 'Imagem muito grande', "type" => "error");
         } else {
             $image_update_query = mysqli_query($mysqli, "UPDATE usuarios SET imagem = '$update_image' WHERE id = '$user_id'") or die('query failed');
             if ($image_update_query) {
                 move_uploaded_file($update_image_tmp_name, $update_image_folder);
             }
-            header('Location: /edit-profile.php?att=imagesucess');
+            $message[] = array("msg" => "Imagem atualizada com sucesso!", "type" => "success");
             $_SESSION['imagem'] = $update_image;
         }
     }
@@ -107,27 +107,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } else {
                 echo '<img class="foto-user" src="uploads/' . $_SESSION['imagem'] . '">';
             }
-            if (isset($_GET['att'])) {
-                if ($_GET['att'] == 'imagesucess') {
-                    echo '<div class="message msg-true">Imagem atualizada com sucesso!</div>';
-                } else if ($_GET['att'] == 'old-pass-incorrect') {
-                    echo '<div class="message msg-false">Senha antiga incorreta!</div>';
-                } else if ($_GET['att'] == 'name-too-short') {
-                    echo '<div class="message msg-false">Nome : mínimo 3 caracteres!</div>';
-                } else if ($_GET['att'] == 'invalid-email') {
-                    echo '<div class="message msg-false">E-mail inválido.</div>';
-                } else if ($_GET['att'] == 'nome-alterado') {
-                    echo '<div class="message msg-true">Nome alterado com sucesso!</div>';
-                } else if ($_GET['att'] == 'email-alterado') {
-                    echo '<div class="message msg-true">Email alterado com sucesso!</div>';
-                } else if ($_GET['att'] == 'same-pass') {
-                    echo '<div class="message msg-false">Use uma senha diferente!</div>';
-                } else if ($_GET['att'] == 'sucess-pass') {
-                    echo '<div class="message msg-true">Senha alterada com sucesso!</div>';
-                } else if ($_GET['att'] == 'too-short-pass') {
-                    echo '<div class="message msg-false">Senha: mínimo 16 caracteres!</div>';
+            if (isset($message)) {
+                foreach ($message as $msg) {
+                    $class = ($msg["type"] == "success") ? "msg-true" : "msg-false";
+                    echo '<div class="message ' . $class . '">' . $msg["msg"] . '</div>';
                 }
-
             }
 
             ?>
