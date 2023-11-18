@@ -87,8 +87,6 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                     }
                 } ?>
 
-                <a href="#" class="forgot-button">Esqueceu sua senha?</a>
-
                 <button type="submit" class="login-button bold">ENTRAR</button>
             </div>
         </form>

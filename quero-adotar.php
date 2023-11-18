@@ -8,6 +8,17 @@ if (!isset($_SESSION['id'])) {
 }
 include("conexao.php");
 include("validacao-filtros.php");
+
+function imagemSexo($animal)
+{
+    if ($animal['sexo'] == 'Macho') {
+        return "imgs/macho.png";
+    } else {
+        return "imgs/femea.png";
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +30,9 @@ include("validacao-filtros.php");
 </head>
 
 <body>
+
+    <div id="overlay" style="display: none;"></div>
+    <div id="overlay2" style="display: none;"></div>
     <?php include 'header.php' ?>
 
     <main class="principal-quero-doar flex-row">
@@ -35,8 +49,8 @@ include("validacao-filtros.php");
                 <label>Vacinado</label>
                 <select name="vacinado">
                     <option value="">Todos</option>
-                    <option value="S">Sim</option>
-                    <option value="N">Não</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
                 </select>
                 <button class="filtrar-button" type="submit">Filtrar</button>
             </form>
@@ -46,9 +60,11 @@ include("validacao-filtros.php");
             <section class="animais-disponiveis flex-row j-content">
                 <?php
 
-                $sql = "SELECT * from 
-                animais as a
-                left join usuarios as u on (a.id_usuario = u.id)";
+                $postPorPagina = 8;
+                $paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
+                $offset = ($paginaAtual - 1) * $postPorPagina;
+
+                $sql = "SELECT * FROM animais AS a LEFT JOIN usuarios AS u ON (a.id_usuario = u.id) LIMIT $postPorPagina OFFSET $offset";
                 if (!empty($where)) {
                     $sql .= " WHERE $where";
                 }
@@ -71,9 +87,25 @@ include("validacao-filtros.php");
                 } else {
                     echo '<p>Ocorreu um erro ao buscar os animais disponíveis.</p>';
                 }
+                $sqlTotal = "SELECT COUNT(*) as total FROM animais";
+                $resultTotal = $mysqli->query($sqlTotal);
+                $rowTotal = $resultTotal->fetch_assoc();
+                $totalDePostagens = $rowTotal['total'];
+                $totalDePaginas = ceil($totalDePostagens / $postPorPagina);
+
                 $mysqli->close();
                 ?>
             </section>
+            <?php
+            echo '<div class="paginacao-postagens">';
+            for ($i = 1; $i <= $totalDePaginas; $i++) {
+                if ($i == $paginaAtual) {
+                    echo "<span>$i</span>";
+                } else {
+                    echo "<a href=\"?pagina=$i\">$i</a>";
+                }
+            }
+            echo '</div>'; ?>
         </div>
 
 

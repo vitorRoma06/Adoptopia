@@ -618,7 +618,7 @@ body {
     color: #fff;
     font-size: 1.25em;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 80%;
     margin: 27px 0px 20px 34px;
     font-family: var(--font-default);
@@ -640,29 +640,66 @@ body {
     object-fit: cover;
 }
 
+.paginacao-postagens {
+    display: flex;
+    justify-content: start;
+    margin: 20px 0;
+}
+
+.paginacao-postagens span {
+    transform: scale(1.2);
+    font-size: 2em;
+    padding: 3px 6px;
+    border-radius: 5px;
+    border: 2px solid var(--color-defaultw);
+    background-color: var(--color-principal3);
+    color: var(--color-defaultW);
+}
+
+.paginacao-postagens a {
+
+    text-decoration: none;
+    font-size: 2em;
+    padding: 3px 6px;
+    background-color: var(--color-principalW);
+    color: var(--color-default3);
+}
+
 /* popup vermais */
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 86;
+}
 
 
 .main-popup-vermais {
+    max-width: 1000px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 87;
-    position: absolute;
+    position: fixed;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
 
-
-    
     background-color: var(--color-defaultW);
     padding: 50px 38px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
 
 }
 
+
 .main-popup-vermais.aberto {
     z-index: 87;
-    position: absolute;
+    position: fixed;
     transition: opacity 1s, visibility 1s;
     display: block;
     opacity: 1;
@@ -675,7 +712,216 @@ body {
     right: 10px;
     font-size: 4em;
     cursor: pointer;
+    transition: all 0.5s;
 }
+
+.close-vermais:hover {
+    transform: rotate(90deg)
+}
+
+.principal-conteudo-vermais {
+    gap: 35px;
+}
+
+.principal-conteudo-vermais img.img-animal-vermais {
+    border-radius: 10px;
+    max-width: 356px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.inf-animal-vermais {
+    width: 400px;
+    word-wrap: break-word;
+}
+
+.quero-adotar-button {
+    height: 64px;
+    border: none;
+    background-color: var(--color-principal2);
+    color: #fff;
+    font-size: 1.45em;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+    font-family: var(--font-default);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.quero-adotar-button:hover {
+    background-color: var(--color-defaultW);
+    color: var(--color-principal2);
+    border: 1px var(--color-principal2) inset;
+    transition: all 0.2s ease-in;
+}
+
+.hr-vermais {
+    border: 1px solid var(--color-principal3);
+    height: 500px;
+}
+
+.secao-img-local {
+    gap: 28px;
+}
+
+.localizacao-vermais i {
+    font-size: 1.4em;
+}
+
+.localizacao-vermais {
+    gap: 16px;
+    align-items: center;
+    font-size: 1.4em;
+    color: var(--color-principal3);
+    font-weight: bold;
+}
+
+.secao-inf-button {
+    justify-content: space-between;
+}
+
+.inf-animal-vermais {
+    gap: 8px;
+    font-size: 1.4em;
+}
+
+.titulo-animal-vermais {
+    font-size: 35px;
+    color: var(--color-principal);
+    font-weight: bold;
+}
+
+.titulo-classes-vermais {
+    color: var(--color-principal3);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* popup queroadotar */
+#overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 88;
+
+}
+
+
+.main-popup-adotar {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: scale(0.3);
+    z-index: 89;
+    position: fixed;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.main-popup-adotar.aberto {
+
+    transform: scale(1);
+    z-index: 89;
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box-quero-adotar-button {
+    max-height: 200px;
+    border-radius: 5px;
+    padding: 15px;
+    width: 350px;
+    background-color: var(--color-defaultW);
+}
+
+.box-quero-adotar-button h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+.box-quero-adotar-buttom p {
+    font-size: 1.2em;
+}
+
+.box-quero-adotar-button p span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-principal3);
+}
+
+.block {
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------*/
+/*----Meus Posts-------------*/
+/*---------------------------*/
+/*---------------------------*/
+
+.principal-meus-posts {
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.meus-posts{
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.red-button {
+    background-color: #c0392b;
+}
+
+.red-button:hover {
+    background-color: var(--color-defaultW);
+    color: #c0392b;
+    border: 1px solid #c0392b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1365,6 +1611,8 @@ main {
     align-items: center;
 }
 
+
+
 .swiper-slide .post-animal-img {
     border-radius: 5px 5px 0px 0px;
     height: 307px;
@@ -1379,12 +1627,19 @@ main {
     color: var(--color-defaultW);
     font-size: 1.25em;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 80%;
     margin: 27px 0px 0px 34px;
     font-family: var(--font-default);
     cursor: pointer;
     transition: all 0.2s ease-out;
+}
+
+.swiper-slide .post-animal-button:hover {
+    background-color: var(--color-defaultW);
+    color: var(--color-principal2);
+    border: 1px var(--color-principal2) inset;
+    transition: all 0.2s ease-in;
 }
 
 .rodape {
