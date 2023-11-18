@@ -39,18 +39,39 @@ function imagemSexo($animal)
         <aside class="barra-lateral-filtros">
             <h1 class="titulo-filtros j-content flex-column align-itens">Filtros</h1>
             <form method="get" class="form-filtro flex-column">
-                <label>Tipo do Animal</label>
-                <select name="tipo-animal">
+                <label for="tipo-animal">Tipo do Animal</label>
+                <select name="tipo-animal" class="tipo-animal">
                     <option value="">Todos</option>
                     <option value="Cachorro">Cachorro</option>
                     <option value="Gato">Gato</option>
                 </select>
 
-                <label>Vacinado</label>
-                <select name="vacinado">
+                <label for="vacinado">Vacinado</label>
+                <select name="vacinado" class="vacinado">
                     <option value="">Todos</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
+                </select>
+                <label for="castrado">Castrado</label>
+                <select name="castrado" class="castrado">
+                    <option value="">Todos</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                </select>
+                <label for="sexo">Sexo</label>
+                <select name="sexo" class="sexo">
+                    <option value="">Todos</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
+                </select>
+                <label for="porte">Porte</label>
+                <select name="porte" class="porte">
+                    <option value="">Todos</option>
+                    <option value="Mini">Mini</option>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                    <option value="Gigante">Gigante</option>
                 </select>
                 <button class="filtrar-button" type="submit">Filtrar</button>
             </form>
@@ -64,10 +85,11 @@ function imagemSexo($animal)
                 $paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
                 $offset = ($paginaAtual - 1) * $postPorPagina;
 
-                $sql = "SELECT * FROM animais AS a LEFT JOIN usuarios AS u ON (a.id_usuario = u.id) LIMIT $postPorPagina OFFSET $offset";
+                $sql = "SELECT * FROM animais AS a LEFT JOIN usuarios AS u ON (a.id_usuario = u.id)";
                 if (!empty($where)) {
                     $sql .= " WHERE $where";
                 }
+                $sql .= " LIMIT $postPorPagina OFFSET $offset";
                 $stmt = $mysqli->prepare($sql);
 
                 if ($stmt) {

@@ -78,11 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <div class="form-group flex-column">
 
-                    <input type="text" name="nome" required placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()">
+                    <input type="text" name="nome" required placeholder="Digite seu nome" class="inputs required"
+                        oninput="nameValidate()">
                     <span class="span-required">Nome deve ter no mínimo 3 caracteres</span>
-                    
 
-                    <input type="email" name="email" required placeholder="Digite seu email" class="inputs required" oninput="emailValidate()">
+
+                    <input type="email" name="email" required placeholder="Digite seu email" class="inputs required"
+                        oninput="emailValidate()">
                     <span class="span-required">Digite um email válido</span>
 
                     <div class="psw flex-row">

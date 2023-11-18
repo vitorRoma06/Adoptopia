@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <label for="tipo-animal">Tipo de Animal:</label>
 
-                    <select name="tipo-animal" id="tipo-animal" required>
+                    <select name="tipo-animal" class="tipo-animal" required>
                         <option value="">Escolha uma opção:</option>
                         <option value="Cachorro">Cachorro</option>
                         <option value="Gato">Gato</option>
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
                     <label for="porte">Porte:</label>
-                    <select name="porte" id="porte" required>
+                    <select name="porte" class="porte" required>
                         <option value="">Escolha uma opção:</option>
                         <option value="Mini">Mini</option>
                         <option value="Pequeno">Pequeno</option>

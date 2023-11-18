@@ -62,7 +62,8 @@
         <i class='bx bx-x close-vermais'></i>
         <h1>Contato:</h1>
         <p><span>E-mail:</span>
-            <?php echo $animal['email'] ?>
+            <?php echo $animal['id_usuario'] ?>
+
         </p>
         <p><span>Número:</span>
             <?php echo $animal['telefone'] ?>

@@ -555,12 +555,15 @@ body {
 .barra-lateral-filtros {
     padding: 20px;
     border-radius: 0px 10px 10px 0px;
-    height: 50vh;
+    max-height: 80vh;
     min-width: 200px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.274);
 }
 
 .titulo-filtros {
+    font-weight: bold;
+    color: var(--color-principal3);
     font-size: 2em;
 }
 
@@ -914,53 +917,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*------ Settings ------*/
 
 .psw input {
@@ -1182,28 +1138,6 @@ body {
 .sub-menu-link:hover p {
     font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

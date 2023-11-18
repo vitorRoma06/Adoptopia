@@ -5,7 +5,7 @@ var adotarButtons = document.querySelectorAll(".quero-adotar-button");
 
 verMaisButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-        // Fechar todos os outros popups
+
         document.querySelectorAll('.main-popup-vermais.aberto').forEach(function (popup) {
             popup.classList.remove('aberto');
         });

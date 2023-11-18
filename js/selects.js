@@ -11,6 +11,9 @@ $(document).ready(function () {
 
 
     select2WithLanguage('.cidade');
-    select2WithLanguage('#tipo-animal');
-    select2WithLanguage('#porte');
+    select2WithLanguage('.tipo-animal');
+    select2WithLanguage('.porte');
+    select2WithLanguage('.vacinado');
+    select2WithLanguage('.castrado');
+    select2WithLanguage('.sexo');
 });
